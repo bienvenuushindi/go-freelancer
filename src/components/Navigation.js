@@ -37,16 +37,16 @@ const Navigation = () => {
             <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-clrSec">FREELANCERS</p>
             </Link>
-            <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
+            <Link to="/reserve" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-white ">RESERVE</p>
             </Link>
-            <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
+            <Link to="/myreservation" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-white ">MY RESERVATIONS</p>
             </Link>
-            <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
+            <Link to="/addfreelancer" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-white ">ADD FREELANCER</p>
             </Link>
-            <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
+            <Link to="/deletefreelancer" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-white ">DELETE FREELANCER</p>
             </Link>
             <button onClick={() => handleSignOut()} type="button" className="flex items-center justify-start w-full py-3 pl-6 space-x-6 font-bold text-red-500 rounded focus:outline-none focus:text-700 hover:text-red-600 ">
