@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   FaFacebook, FaTwitter, FaLinkedinIn, FaWhatsapp,
 } from 'react-icons/fa';
+// import { getFreelancersAction } from '../redux/freelancersReducer';
 
 const Freelancers = () => {
   const freelancers = [
