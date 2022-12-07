@@ -1,40 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
   FaFacebook, FaTwitter, FaLinkedinIn, FaWhatsapp,
 } from 'react-icons/fa';
-// import { getFreelancersAction } from '../redux/freelancersReducer';
+import { getFreelancersAction } from '../redux/freelancersReducer';
 
 const Freelancers = () => {
-  const freelancers = [
-    {
-      id: 1,
-      name: 'Tom',
-      detail: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quam?',
-      photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg',
-      fee: 280,
-      location: 'Munich',
-      specializations: ['Ruby', 'Rails'],
-    },
-    {
-      id: 2,
-      name: 'Cindy',
-      detail: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quam?',
-      photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1445.jpg',
-      fee: 280,
-      location: 'Milan',
-      specializations: ['JavaScript', 'React'],
-    },
-    {
-      id: 3,
-      name: 'Cindy',
-      detail: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quam?',
-      photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1398.jpg',
-      fee: 200,
-      location: 'Milan',
-      specializations: ['JavaScripts'],
-    },
-  ];
+  const freelancers = useSelector((state) => state.freelancers);
+  const dispatch = useDispatch();
+  /* eslint-disable */
+  useEffect(() => {
+    dispatch(getFreelancersAction());
+  }, []);
+
+  // const freelancers = [
+  //   {
+  //     id: 1,
+  //     name: 'Tom',
+  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg',
+  //     fee: 280,
+  //     location: 'Munich',
+  //     specializations: ['Ruby', 'Rails'],
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Cindy',
+  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1445.jpg',
+  //     fee: 280,
+  //     location: 'Milan',
+  //     specializations: ['JavaScript', 'React'],
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Cindy',
+  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1398.jpg',
+  //     fee: 200,
+  //     location: 'Milan',
+  //     specializations: ['JavaScripts'],
+  //   },
+  // ];
 
   return (
     <>
@@ -51,7 +59,7 @@ const Freelancers = () => {
                 <img src={fl.photo} alt={fl.name} className="w-60 h-60 rounded-full p-1 my-1 bg-slate-100 border-slate-700" />
                 <h2 className="uppercase font-bold my-1">{fl.name}</h2>
                 <hr className="border-t-2 border-dashed border-gray-200 w-48 my-2" />
-                <p className="text-gray-400 text-center my-2 w-full">{fl.detail}</p>
+                <p className="text-gray-400 text-center my-2 w-full">{fl.details}</p>
                 <div className="flex items-center justify-center w-full m-3">
                   <FaTwitter size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
                   <FaFacebook size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
