@@ -30,11 +30,11 @@ const Navigation = () => {
     <div>
       <div id="Main" className="border rounded fixed h-full bg-white flex justify-between w-64 flex-col">
         <div>
-          <Link to="/" type="button" className="flex items-center justify-center w-full py-6 text-xl text-clrPrime xl:text-3xl">
+          <Link to="/freelancers" type="button" className="flex items-center justify-center w-full py-6 text-xl text-clrPrime xl:text-3xl">
             GoFreelancers
           </Link>
           <div className="flex flex-col items-center justify-start w-full px-1 mt-4 ">
-            <Link to="/" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
+            <Link to="/freelancers" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">
               <p className="font-bold leading-4 text-black border-b border-transparent hover:border-clrSec focus:border-clrSec">FREELANCERS</p>
             </Link>
             <Link to="/reserve" type="button" className="flex items-center w-full py-3 pl-6 space-x-6 font-bold text-black rounded focus:outline-none focus:bg-clrPrime jusitfy-start hover:bg-clrPrime ">

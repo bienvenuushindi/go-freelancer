@@ -2,7 +2,13 @@ import { Navigate, Outlet } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
 const useAuth = () => {
-  const loggedIn = true;
+  let loggedIn = false;
+  if (localStorage.getItem('token')) {
+    loggedIn = true;
+  } else {
+    loggedIn = false;
+  }
+
   return loggedIn;
 };
 
@@ -16,7 +22,7 @@ const MainPage = () => {
       </div>
     </>
   ) : (
-    <Navigate to="/signin" />
+    <Navigate to="/" />
   );
 };
 
