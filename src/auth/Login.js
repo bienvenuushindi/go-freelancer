@@ -10,20 +10,27 @@ export default function Login() {
     e.preventDefault();
     const name = e.target[0].value;
     const password = e.target[1].value;
-    const res = await axios.post(`${BaseUrl}users/sign_in`, {
+    await axios.post(`${BaseUrl}users/sign_in`, {
       user: {
         name,
         password,
       },
-    }).then((response) => response);
-    e.target[0].value = '';
-    e.target[1].value = '';
-    localStorage.setItem('token', res.headers.authorization);
-    navigate('/freelancers');
+    }).then((response) => {
+      const token = response.headers.authorization;
+      if (token && token !== '') {
+        localStorage.setItem('token', token);
+        navigate('/freelancers');
+      }
+    }).catch((err) => {
+      document.getElementById('msg').textContent = `${err.response.data}!`;
+      e.target[0].value = '';
+      e.target[1].value = '';
+    });
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+        <p className="text-md text-red-600 text-center mb-3" id="msg" />
         <h1 className="text-3xl font-semibold text-center text-clrSec">
           GoFreelancers
           {' '}

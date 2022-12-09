@@ -1,20 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 
-const useAuth = () => {
-  let loggedIn = false;
-  if (localStorage.getItem('token')) {
-    loggedIn = true;
-  } else {
-    loggedIn = false;
-  }
-
-  return loggedIn;
+const isAuth = (token) => {
+  if (!token || token === '') return false;
+  return true;
 };
 
-const MainPage = () => {
-  const isAuth = useAuth();
-  return isAuth ? (
+const MainPage = () => (
+  isAuth(localStorage.getItem('token')) ? (
     <>
       <Navigation />
       <div className="xl:ml-72">
@@ -23,7 +16,7 @@ const MainPage = () => {
     </>
   ) : (
     <Navigate to="/" />
-  );
-};
+  )
+);
 
 export default MainPage;
