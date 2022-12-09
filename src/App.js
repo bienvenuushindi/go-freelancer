@@ -4,6 +4,7 @@ import Freelancers from './components/Freelancers';
 // import Auth from './auth/Auth';
 import MainPage from './protected/MainPage';
 import Login from './auth/Login';
+import Signup from './auth/Signup';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Login />} />
-          <Route exact path="/signup" element={<><h1>Registration/ SignUp Page</h1></>} />
+          <Route exact path="/signup" element={<Signup />} />
           {/* <Route element={Auth}>
             <Route exact path="/" element={Login} />
             <Route exact path="/signup" element={<><h1>Registration/ SignUp Page</h1></>} />

@@ -7,10 +7,12 @@ export default function Login() {
   const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40';
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target[0].value;
-    const password = e.target[1].value;
-    const res = await axios.post(`${BaseUrl}users/sign_in`, {
+    const name = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+    const res = await axios.post(`${BaseUrl}users`, {
       user: {
+        name,
         email,
         password,
       },
@@ -24,10 +26,20 @@ export default function Login() {
         <h1 className="text-3xl font-semibold text-center text-clrSec">
           GoFreelancers
           {' '}
-          <span className="text-xl text-clrPrime">Sign in</span>
+          <span className="text-xl text-clrPrime">Sign up</span>
         </h1>
         <form onSubmit={(e) => handleSubmit(e)} className="mt-6">
           <div className="mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-semibold text-gray-800"
+            >
+              Name
+              <input
+                type="text"
+                className={`${fldClass}`}
+              />
+            </label>
             <label
               htmlFor="email"
               className="block text-sm font-semibold text-gray-800"
@@ -60,7 +72,7 @@ export default function Login() {
           </a>
           <div className="mt-6">
             <button type="submit" className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-clrPrime rounded-md hover:bg-lime-400 focus:outline-none focus:bg-clrPrime">
-              Login
+              Sign up
             </button>
           </div>
         </form>
@@ -70,10 +82,10 @@ export default function Login() {
           Don&apos;t have an account?
           {' '}
           <a
-            href="/signup"
+            href="/"
             className="font-medium text-clrPrime hover:underline"
           >
-            Sign up
+            Sign in
           </a>
         </p>
       </div>
