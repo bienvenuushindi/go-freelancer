@@ -4,7 +4,7 @@ import BaseUrl from '../redux/base_url';
 
 export default function Login() {
   const navigate = useNavigate();
-  const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40';
+  const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-clrPrime focus:outline-none focus:ring focus:ring-opacity-20';
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target[0].value;
