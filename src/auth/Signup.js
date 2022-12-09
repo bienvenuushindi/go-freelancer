@@ -10,18 +10,24 @@ export default function Login() {
     const name = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
-    const res = await axios.post(`${BaseUrl}users`, {
+    await axios.post(`${BaseUrl}users`, {
       user: {
         name,
         email,
         password,
       },
-    }).then((response) => response);
-    e.target[0].value = '';
-    e.target[1].value = '';
-    e.target[2].value = '';
-    localStorage.setItem('token', res.headers.authorization);
-    navigate('/freelancers');
+    }).then((response) => {
+      const token = response.headers.authorization;
+      if (token && token !== '') {
+        localStorage.setItem('token', token);
+        navigate('/freelancers');
+      }
+    }).catch((err) => {
+      document.getElementById('msg').textContent = `${err.response.data}!`;
+      e.target[0].value = '';
+      e.target[1].value = '';
+      e.target[1].value = '';
+    });
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
