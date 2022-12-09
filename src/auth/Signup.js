@@ -17,6 +17,9 @@ export default function Login() {
         password,
       },
     }).then((response) => response);
+    e.target[0].value = '';
+    e.target[1].value = '';
+    e.target[2].value = '';
     localStorage.setItem('token', res.headers.authorization);
     navigate('/freelancers');
   };
@@ -38,6 +41,8 @@ export default function Login() {
               <input
                 type="text"
                 className={`${fldClass}`}
+                placeholder="enter your name"
+                required
               />
             </label>
             <label
@@ -48,6 +53,8 @@ export default function Login() {
               <input
                 type="email"
                 className={`${fldClass}`}
+                placeholder="email@example.com"
+                required
               />
             </label>
           </div>
@@ -60,6 +67,8 @@ export default function Login() {
               <input
                 type="password"
                 className={`${fldClass}`}
+                placeholder="enter password"
+                required
               />
             </label>
 

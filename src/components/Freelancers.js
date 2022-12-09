@@ -14,36 +14,6 @@ const Freelancers = () => {
     dispatch(getFreelancersAction());
   }, []);
 
-  // const freelancers = [
-  //   {
-  //     id: 1,
-  //     name: 'Tom',
-  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1815.jpg',
-  //     fee: 280,
-  //     location: 'Munich',
-  //     specializations: ['Ruby', 'Rails'],
-  //   },
-  //   {
-  //     id: 2,
-  //     name: 'Cindy',
-  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1445.jpg',
-  //     fee: 280,
-  //     location: 'Milan',
-  //     specializations: ['JavaScript', 'React'],
-  //   },
-  //   {
-  //     id: 3,
-  //     name: 'Cindy',
-  //     details: 'Full-Stack Developer Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-  //     photo: 'https://static.tvmaze.com/uploads/images/medium_portrait/0/1398.jpg',
-  //     fee: 200,
-  //     location: 'Milan',
-  //     specializations: ['JavaScripts'],
-  //   },
-  // ];
-
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full p-6 lg:pl-0">

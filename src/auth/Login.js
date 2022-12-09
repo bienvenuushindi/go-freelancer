@@ -5,16 +5,19 @@ import BaseUrl from '../redux/base_url';
 export default function Login() {
   const navigate = useNavigate();
   const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40';
+  const lblClass = 'block text-sm font-semibold text-gray-800';
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = e.target[0].value;
+    const name = e.target[0].value;
     const password = e.target[1].value;
     const res = await axios.post(`${BaseUrl}users/sign_in`, {
       user: {
-        email,
+        name,
         password,
       },
     }).then((response) => response);
+    e.target[0].value = '';
+    e.target[1].value = '';
     localStorage.setItem('token', res.headers.authorization);
     navigate('/freelancers');
   };
@@ -29,25 +32,29 @@ export default function Login() {
         <form onSubmit={(e) => handleSubmit(e)} className="mt-6">
           <div className="mb-2">
             <label
-              htmlFor="email"
-              className="block text-sm font-semibold text-gray-800"
+              htmlFor="name"
+              className={`${lblClass}`}
             >
-              Email
+              Name
               <input
-                type="email"
+                type="text"
                 className={`${fldClass}`}
+                placeholder="enter your name"
+                required
               />
             </label>
           </div>
           <div className="mb-2">
             <label
               htmlFor="password"
-              className="block text-sm font-semibold text-gray-800"
+              className={`${lblClass}`}
             >
               Password
               <input
                 type="password"
                 className={`${fldClass}`}
+                placeholder="password"
+                required
               />
             </label>
 

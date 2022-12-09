@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Freelancers from './components/Freelancers';
-// import Auth from './auth/Auth';
 import MainPage from './protected/MainPage';
 import Login from './auth/Login';
 import Signup from './auth/Signup';
@@ -13,10 +12,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
-          {/* <Route element={Auth}>
-            <Route exact path="/" element={Login} />
-            <Route exact path="/signup" element={<><h1>Registration/ SignUp Page</h1></>} />
-          </Route> */}
           <Route element={<MainPage />}>
             <Route exact path="/freelancers" element={<Freelancers />} />
             <Route exact path="/details/:id" element={<><h1>Link to FreeLancer&apos;s Details page</h1></>} />
