@@ -5,6 +5,12 @@ import BaseUrl from '../redux/base_url';
 export default function Login() {
   const navigate = useNavigate();
   const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-clrPrime focus:outline-none focus:ring focus:ring-opacity-20';
+  const resetFormFields = (fields) => {
+    fields.forEach((item) => {
+      // eslint-disable-next-line no-param-reassign
+      item.value = '';
+    });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target[0].value;
@@ -23,15 +29,14 @@ export default function Login() {
         navigate('/freelancers');
       }
     }).catch((err) => {
-      document.getElementById('msg').textContent = `${err.response.data}!`;
-      e.target[0].value = '';
-      e.target[1].value = '';
-      e.target[1].value = '';
+      document.getElementById('msg').textContent = `${err.message}!`;
+      resetFormFields(e.target);
     });
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
+        <p className="text-md text-red-600 text-center mb-3" id="msg" />
         <h1 className="text-3xl font-semibold text-center text-clrSec">
           GoFreelancers
           {' '}
