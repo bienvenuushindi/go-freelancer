@@ -23,7 +23,6 @@ export default function Login() {
       }
     }).catch((err) => {
       document.getElementById('msg').textContent = `${err.response ? err.response.data : err.message}!`;
-      e.target[1].value = '';
     });
     e.target.reset();
   };
