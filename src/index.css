@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* stylelint-disable  -- @layer*/
+@layer components {
+  .nav__link {
+    @apply flex items-center w-full py-3 pl-6 space-x-6 font-bold text-gray-800 rounded focus: outline-none focus:bg-clrPrime justify-start hover:bg-clrPrime hover:text-white xl:text-lg;
+  }
+}
