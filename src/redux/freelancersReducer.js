@@ -10,7 +10,7 @@ export const fetchFreelancers = (data) => ({
 });
 
 export const getFreelancersAction = () => async (dispatch) => {
-  await axios.get(`${BaseUrl}api/v1/freelancers`)
+  await axios.get(`${BaseUrl}api/v1/freelancers`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
       dispatch(fetchFreelancers(res.data));
     });

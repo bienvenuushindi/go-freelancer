@@ -1,19 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './protected/MainPage';
 import Freelancers from './components/Freelancers';
+import MainPage from './protected/MainPage';
+import Login from './auth/Login';
+import Signup from './auth/Signup';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<><h1>Protected Page, Need to Sign in, splash</h1></>}>
-            <Route exact path="/signin" element={<><h1>Sign in Page</h1></>} />
-            <Route exact path="/signup" element={<><h1>Registration/ SignUp Page</h1></>} />
-          </Route>
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
           <Route element={<MainPage />}>
-            <Route exact path="/" element={<Freelancers />} />
+            <Route exact path="/freelancers" element={<Freelancers />} />
             <Route exact path="/details/:id" element={<><h1>Link to FreeLancer&apos;s Details page</h1></>} />
             <Route exact path="/reserve" element={<><h1>Link to Reservation page</h1></>} />
             <Route exact path="/myreservation" element={<><h1>Link to My Reservation page</h1></>} />
