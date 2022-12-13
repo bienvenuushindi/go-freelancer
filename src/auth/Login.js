@@ -22,10 +22,10 @@ export default function Login() {
         navigate('/freelancers');
       }
     }).catch((err) => {
-      document.getElementById('msg').textContent = `${err.response.data}!`;
-      e.target[0].value = '';
+      document.getElementById('msg').textContent = `${err.response ? err.response.data : err.message}!`;
       e.target[1].value = '';
     });
+    e.target.reset();
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -47,6 +47,8 @@ export default function Login() {
                 type="text"
                 className={`${fldClass}`}
                 placeholder="enter your name"
+                minLength={2}
+                maxLength={30}
                 required
               />
             </label>
@@ -61,6 +63,7 @@ export default function Login() {
                 type="password"
                 className={`${fldClass}`}
                 placeholder="password"
+                minLength={6}
                 required
               />
             </label>
