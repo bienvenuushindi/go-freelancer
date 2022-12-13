@@ -5,12 +5,7 @@ import BaseUrl from '../redux/base_url';
 export default function Login() {
   const navigate = useNavigate();
   const fldClass = 'block w-full px-4 py-2 mt-2 text-clrPrime bg-white border rounded-md focus:border-clrPrime focus:ring-clrPrime focus:outline-none focus:ring focus:ring-opacity-20';
-  const resetFormFields = (fields) => {
-    fields.forEach((item) => {
-      // eslint-disable-next-line no-param-reassign
-      item.value = '';
-    });
-  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const name = e.target[0].value;
@@ -30,7 +25,7 @@ export default function Login() {
       }
     }).catch((err) => {
       document.getElementById('msg').textContent = `${err.message}!`;
-      resetFormFields(e.target);
+      e.target.reset();
     });
   };
   return (
@@ -79,6 +74,7 @@ export default function Login() {
                 type="password"
                 className={`${fldClass}`}
                 placeholder="enter password"
+                minLength={6}
                 required
               />
             </label>
