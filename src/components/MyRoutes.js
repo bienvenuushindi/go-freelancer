@@ -3,7 +3,7 @@ import Freelancers from './Freelancers';
 import MainPage from '../protected/MainPage';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
-import { isLoggedIn, RequireAuth } from '../auth/authHelpers';
+import { RequireAuth } from '../auth/authHelpers';
 
 const MyRoutes = () => {
   const routes = useRoutes([
@@ -17,23 +17,23 @@ const MyRoutes = () => {
         },
         {
           path: '/details/:id',
-          element: <div>Link to details</div>,
+          element: <RequireAuth><div>Link to Freelancer Details</div></RequireAuth>,
         },
         {
           path: '/reserve',
-          element: <div>Link to reserve</div>,
+          element: <RequireAuth><div>Link to Add Reserve</div></RequireAuth>,
         },
         {
           path: '/myreservation',
-          element: <div>Link to myreservations</div>,
+          element: <RequireAuth><div>Link to my reservation</div></RequireAuth>,
         },
         {
           path: '/addfreelancer',
-          element: isLoggedIn() ? <h1>Link to Add Freelancer</h1> : <div>SDF</div>,
+          element: <RequireAuth><div>Link to Add Freelancer</div></RequireAuth>,
         },
         {
           path: '/deletefreelancer',
-          element: <RequireAuth><div>Link to Add Freelancer</div></RequireAuth>,
+          element: <RequireAuth><div>Link to Delete Freelancer</div></RequireAuth>,
         },
         {
           path: '/logout',
