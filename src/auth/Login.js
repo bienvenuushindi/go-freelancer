@@ -19,7 +19,7 @@ export default function Login() {
       const token = response.headers.authorization;
       if (token && token !== '') {
         localStorage.setItem('token', token);
-        navigate('/freelancers');
+        navigate('/');
       }
     }).catch((err) => {
       document.getElementById('msg').textContent = `${err.response ? err.response.data : err.message}!`;

@@ -21,7 +21,7 @@ export default function Login() {
       const token = response.headers.authorization;
       if (token && token !== '') {
         localStorage.setItem('token', token);
-        navigate('/freelancers');
+        navigate('/');
       }
     }).catch((err) => {
       document.getElementById('msg').textContent = `${err.message}!`;
@@ -48,6 +48,8 @@ export default function Login() {
                 type="text"
                 className={`${fldClass}`}
                 placeholder="enter your name"
+                minLength={2}
+                maxLength={30}
                 required
               />
             </label>
@@ -98,7 +100,7 @@ export default function Login() {
           Don&apos;t have an account?
           {' '}
           <a
-            href="/"
+            href="/signin"
             className="font-medium text-clrPrime hover:underline"
           >
             Sign in
