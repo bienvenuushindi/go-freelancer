@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   FaFacebook, FaTwitter, FaLinkedinIn, FaWhatsapp,
 } from 'react-icons/fa';
 import '../index.css';
 import { isLoggedIn } from '../auth/authHelpers';
+import BaseUrl from '../redux/base_url';
 
 const Navigation = () => {
-  const url = 'http://localhost:3000/';
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const handleSignOut = () => {
-    fetch(`${url}users/sign_out`, {
+    fetch(`${BaseUrl}users/sign_out`, {
       method: 'DELETE',
       headers: {
         'Content-Type': '*/*',
@@ -28,29 +29,56 @@ const Navigation = () => {
       });
   };
 
+  const toggleMenu = () => {
+    if (show) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+  };
+
   return (
     <div>
-      <div id="Main" className="border rounded fixed h-full bg-white flex justify-between w-64 flex-col">
+      <div className="fixed top-0 z-10 flex items-center justify-between w-full p-9 border rounded shadow-lg bg-bgDefault xl:hidden sm:border-gray-200">
+        <Link to="/" onClick={() => setShow(false)} className="flex items-center justify-between space-x-3 text-white hover:text-clrSec focus:outline-none focus:text-indigo-200">
+          <span className="flex items-center justify-between text-2xl leading-6 text-clrPrime">
+            GoFreeLancer
+          </span>
+        </Link>
+        <div aria-label="toggler" className="flex items-center justify-center text-indigo-300">
+          <button type="button" id="open" aria-label="open" onClick={() => setShow(!show)} className={`${show ? 'hidden' : ''} focus:outline-none focus:ring-2`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
+          <button type="button" id="close" aria-label="close" onClick={() => setShow(!show)} className={`${show ? '' : 'hidden'} focus:outline-none focus:ring-2`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="Main" className={`${show ? 'translate-x-0' : '-translate-x-full'} xl:translate-x-0 transform ease-in-out xl:ease-linear transition duration-500 side__bar`}>
         <div>
-          <Link to="/" type="button" className="flex items-center justify-start w-full pl-6 py-6 text-xl font-bold text-clrPrime xl:text-3xl">
+          <Link to="/" onClick={() => toggleMenu()} type="button" className="hidden items-center justify-start w-full p-6 space-x-3 text-xl font-bold text-clrPrime xl:text-3xl xl:block">
             GoFreelancers
           </Link>
-          <div className="flex flex-col items-center justify-start w-full px-1 mt-4 ">
-            <Link to="/" type="button" className="nav__link">
+          <div className="flex flex-col items-center justify-start w-full px-1">
+            <Link to="/" onClick={() => toggleMenu()} type="button" className="nav__link">
               FREELANCERS
             </Link>
-            <Link to="/reserve" type="button" className="nav__link">
+            <Link to="/reserve" onClick={() => toggleMenu()} type="button" className="nav__link">
               RESERVE
             </Link>
-            <Link to="/myreservation" type="button" className="nav__link">
+            <Link to="/myreservation" onClick={() => toggleMenu()} type="button" className="nav__link">
               MY RESERVATIONS
             </Link>
             {isLoggedIn() ? (
               <>
-                <Link to="/addfreelancer" type="button" className="nav__link">
+                <Link to="/addfreelancer" onClick={() => toggleMenu()} type="button" className="nav__link">
                   ADD FREELANCER
                 </Link>
-                <Link to="/deletefreelancer" type="button" className="nav__link">
+                <Link to="/deletefreelancer" onClick={() => toggleMenu()} type="button" className="nav__link">
                   DELETE FREELANCER
                 </Link>
                 <button onClick={() => handleSignOut()} type="button" className="flex items-center justify-start w-full py-3 pl-6 space-x-6 font-bold text-red-500 rounded focus:outline-none focus:text-700 hover:text-red-600 ">
@@ -59,11 +87,11 @@ const Navigation = () => {
               </>
             ) : (
               <>
-                <Link to="/signin" type="button" className="nav__link">
-                  sign in
+                <Link to="/signin" onClick={() => toggleMenu()} type="button" className="nav__link">
+                  SIGN IN
                 </Link>
-                <Link to="/signup" type="button" className="nav__link">
-                  sign up
+                <Link to="/signup" onClick={() => toggleMenu()} type="button" className="nav__link">
+                  SIGN UP
                 </Link>
               </>
             )}

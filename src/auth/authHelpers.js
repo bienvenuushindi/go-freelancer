@@ -13,7 +13,7 @@ export const RequireAuth = ({ children }) => {
     children
   ) : (
     <>
-      <h2 className="text-red-500 text-xl">You are not signed in</h2>
+      <div className="relative top-24 text-red-500 z-10 text-lg text-right pr-6">You are not signed in</div>
       <Freelancers />
     </>
   );
