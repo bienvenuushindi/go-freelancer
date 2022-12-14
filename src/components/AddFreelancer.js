@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-function Addfreelancer() {
-  return (
-    <>
+const AddFreelancer = () => (
+  <>
     {/* add from using tailwindcss */}
-    <form onSubmit={handleSubmit} className="w-full max-w-lg">
+    <form className="w-full max-w-lg">
       <div className="flex flex-wrap -mx-3 mb-2">
         <div className="w-full px-3">
           <label
@@ -12,14 +11,14 @@ function Addfreelancer() {
             htmlFor="name"
           >
             Name
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Name"
+            />
           </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="name"
-            type="text"
-            placeholder="Name"
-            value={name}
-          />
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -29,14 +28,16 @@ function Addfreelancer() {
             htmlFor="image"
           >
             Image
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="image"
+              type="file"
+              placeholder="Image"
+              multiple
+              name="image"
+            />
           </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="image"
-            type="file"
-            placeholder="Image"
-            multiple
-          />
+
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -46,14 +47,14 @@ function Addfreelancer() {
             htmlFor="type"
           >
             Type
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="type"
+              type="text"
+              placeholder="Type"
+              name="type"
+            />
           </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="type"
-            type="text"
-            placeholder="Type"
-            value={type}
-          />
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -63,14 +64,13 @@ function Addfreelancer() {
             htmlFor="description"
           >
             Description
+            <textarea
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight  resize-none focus:outline-none focus:bg-white"
+              id="description"
+              name="description"
+              placeholder="Description"
+            />
           </label>
-          <textarea
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight  resize-none focus:outline-none focus:bg-white"
-            id="description"
-            type="text"
-            placeholder="Description"
-            value={description}
-          />
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -80,14 +80,15 @@ function Addfreelancer() {
             htmlFor="brand"
           >
             Brand
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="brand"
+              name="brand"
+              type="text"
+              placeholder="Brand"
+            />
           </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="brand"
-            type="text"
-            placeholder="Brand"
-            value={brand}
-          />
+
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -97,14 +98,14 @@ function Addfreelancer() {
             htmlFor="daily_rate"
           >
             Daily Rate
+            <input
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              id="daily_rate"
+              name="daily_rate"
+              type="text"
+              placeholder="Daily Rate"
+            />
           </label>
-          <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-            id="daily_rate"
-            type="text"
-            placeholder="Daily Rate"
-            value={dailyrate}
-          />
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-2">
@@ -119,7 +120,6 @@ function Addfreelancer() {
       </div>
     </form>
   </>
-  );
-}
+);
 
-export default Addfreelancer
+export default AddFreelancer;
