@@ -13,9 +13,9 @@ const Freelancer = () => {
   }, []);
   return (
     <>
-      <div className="flex px-4 h-96 content-center">
+      <div className="flex px-4 mt-52 content-center ">
         <div className="w-9/12 flex justify-center text-center pb-4">
-          <img src={freelancer.photo} alt={freelancer.name} className=" w-80 p-1 my-1 bg-slate-100 border-slate-700" />
+          <img src={freelancer.photo} alt={freelancer.name} className=" w-4/12 p-1 my-1 bg-slate-100 border-slate-700" />
         </div>
         <div className="flex-auto w-3/12 flex-col">
           <div className="details">
@@ -56,12 +56,12 @@ const Freelancer = () => {
             </div>
           </div>
           <div className="p-4">
-            <button type="button" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full flex">
+            <a href="#" className="bg-green-500 w-fit hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full flex">
               <svg className="fill-current w-4 h-4 mr-2 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
               </svg>
               <span>Reserve</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
