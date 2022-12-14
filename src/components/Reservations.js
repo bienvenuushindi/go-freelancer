@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/button-has-type */
+import React from 'react';
 
 function Reservations() {
   return (
@@ -11,53 +12,56 @@ function Reservations() {
         My Reservations List
       </h1>
       <div className="flex flex-row flex-wrap gap-5 md:flex-nowrap md:gap-0 md:flex-col w-full mb-12">
-          <div
-            className="flex md:flex-row md:w-full w-[310px]  flex-col items-center justify-between m-auto shadow-md rounded-lg mb-4 md:m-5 md:h-[80px] px-[10px]"
-          >
-            <div className="md:w-[80px] md:h-[75px] md:rounded-full p-2">
-              <img
-                src={info.car.image.url}
-                alt={info.car.name}
-                className="w-full h-full object-cover rounded-lg md:rounded-full"
-              />
+        <div
+          className="flex md:flex-row md:w-full w-[310px]  flex-col items-center justify-between m-auto shadow-md rounded-lg mb-4 md:m-5 md:h-[80px] px-[10px]"
+        >
+          <div className="md:w-[80px] md:h-[75px] md:rounded-full p-2">
+            <img
+              src="#"
+              alt=""
+              className="w-full h-full object-cover rounded-lg md:rounded-full"
+            />
+          </div>
+          <div className="flex flex-row flex-wrap gap-12 ml-8 mt-5 mb-4  md:flex-row md:justify-between w-full  md:mx-11">
+            <div className="flex flex-col justify-center md:w-[200px] ">
+              <h1 className="text-md font-bold">Hello</h1>
+              <p className="text-sm text-gray-500">We</p>
             </div>
-            <div className="flex flex-row flex-wrap gap-12 ml-8 mt-5 mb-4  md:flex-row md:justify-between w-full  md:mx-11">
-              <div className="flex flex-col justify-center md:w-[200px] ">
-                <h1 className="text-md font-bold">{info.car.name}</h1>
-                <p className="text-sm text-gray-500">{info.car.brand}</p>
-              </div>
-              <div className="flex flex-col justify-center">
-                <p className="text-sm text-gray-500">Start date</p>
-                <h1 className="text-md font-bold">{info.reservation_date}</h1>
-              </div>
-              <div className="flex flex-col justify-center">
-                <p className="text-sm text-gray-500">End date</p>
-                <h1 className="text-md font-bold">{info.due_date}</h1>
-              </div>
+            <div className="flex flex-col justify-center">
+              <p className="text-sm text-gray-500">Start date</p>
+              <h1 className="text-md font-bold">12/12/12</h1>
+            </div>
+            <div className="flex flex-col justify-center">
+              <p className="text-sm text-gray-500">End date</p>
+              <h1 className="text-md font-bold">Date</h1>
+            </div>
 
-              <div className="flex flex-col justify-center">
-                <h1 className="text-md font-bold">{info.car.daily_rate}€</h1>
-                <p className="text-sm text-gray-500">/day</p>
-              </div>
-              <div className="flex flex-col justify-center">
-                <h1 className="text-md font-bold">
-                  rate
-                </h1>
-                <p className="text-sm text-gray-500">Total</p>
-              </div>
+            <div className="flex flex-col justify-center">
+              <h1 className="text-md font-bold">
+                222
+                €
+              </h1>
+              <p className="text-sm text-gray-500">/day</p>
             </div>
-            {/* add Cancle button */}
-            <div className="flex flex-col justify-center mb-[1rem]">
-              <button
-                className="bg-gray-100 text-[#313131] px-4 py-2 rounded-lg"
-              >
-                Cancel
-              </button>
+            <div className="flex flex-col justify-center">
+              <h1 className="text-md font-bold">
+                rate
+              </h1>
+              <p className="text-sm text-gray-500">Total</p>
             </div>
           </div>
+          {/* add Cancle button */}
+          <div className="flex flex-col justify-center mb-[1rem]">
+            <button
+              className="bg-gray-100 text-[#313131] px-4 py-2 rounded-lg"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default Reservations
+export default Reservations;

@@ -5,6 +5,7 @@ import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 import { RequireAuth } from '../auth/authHelpers';
 import Addfreelancer from './Addfreelancer';
+import Reservations from './Reservations';
 
 const MyRoutes = () => {
   const routes = useRoutes([
@@ -26,7 +27,7 @@ const MyRoutes = () => {
         },
         {
           path: '/myreservation',
-          element: <RequireAuth><div>Link to my reservation</div></RequireAuth>,
+          element: <RequireAuth><Reservations /></RequireAuth>,
         },
         {
           path: '/addfreelancer',
