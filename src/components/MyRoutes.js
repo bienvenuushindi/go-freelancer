@@ -21,7 +21,7 @@ const MyRoutes = () => {
           element: <div><Freelancer /></div>,
         },
         {
-          path: '/reserve',
+          path: '/reserve/:freelancer_id?',
           element: <RequireAuth><div>Link to Add Reserve</div></RequireAuth>,
         },
         {
