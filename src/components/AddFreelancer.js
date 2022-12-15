@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { addFreelancerAction } from '../redux/freelancersReducer';
+import { getSpecializationAction } from '../redux/specializationReducer';
+import SpecializationOption from './specializationOption';
 
 const AddFreelancer = () => {
   const data = {
-    name: '', fee: 0, details: '', photo: 'image', featured_image: null, location: '',
+    name: '', fee: 0, details: '', photo: 'image', featured_image: null, location: '', specializations: [],
   };
   const dispatch = useDispatch();
+  const specializations = useSelector((state) => state.specializations);
   const [formData, setFormData] = useState(data);
   const handleChange = (e) => {
     setFormData((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
+
+  useEffect(() => {
+    dispatch(getSpecializationAction());
+  }, [dispatch]);
   const onImageChange = (e) => {
     setFormData((prevState) => ({ ...prevState, featured_image: e.target.files[0] }));
   };
@@ -27,6 +34,23 @@ const AddFreelancer = () => {
       form.append(`freelancer[${key}]`, freelancer.freelancer[key]);
     });
     dispatch(addFreelancerAction(form));
+  };
+
+  const updateSelected = (e) => {
+    const value = parseInt(e.target.value, 10);
+    if (e.target.checked) {
+      // eslint-disable-next-line max-len
+      setFormData((prevState) => ({ ...prevState, specializations: [...prevState.specializations, value] }));
+      // data.specializations.push(e.target.value);
+    } else {
+      // eslint-disable-next-line max-len
+      setFormData((prevState) => {
+        const filtered = prevState.specializations.filter((item) => item !== value);
+        return ({ ...prevState, specializations: [...filtered] });
+      });
+      // data.specializations = [...data.specializations.filter((item) => item !== e.target.value)];
+    }
+    // console.log(data.specializations);
   };
   return (
     <>
@@ -134,6 +158,10 @@ const AddFreelancer = () => {
 
             </div>
           </div>
+          <SpecializationOption
+            specializations={specializations}
+            updateSelected={(e) => updateSelected(e)}
+          />
           <div className="flex flex-wrap -mx-3 mb-2">
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <button

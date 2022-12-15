@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {
-  FaFacebook, FaTwitter, FaLinkedinIn, FaWhatsapp,
-} from 'react-icons/fa';
 import { getFreelancersAction } from '../redux/freelancersReducer';
+import SpecializationList from './specializationList';
 
 const Freelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -12,8 +10,7 @@ const Freelancers = () => {
   /* eslint-disable */
   useEffect(() => {
     dispatch(getFreelancersAction());
-  }, []);
-  console.log(freelancers);
+  }, [dispatch]);
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full p-7 xl:pl-0">
@@ -37,10 +34,7 @@ const Freelancers = () => {
                     <hr className="border-t-2 border-dashed border-gray-200 w-48 my-2" />
                     <p className="text-gray-400 text-center my-2 w-full">{fl.details}</p>
                     <div className="flex items-center justify-center w-full m-3">
-                      <FaTwitter size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
-                      <FaFacebook size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
-                      <FaLinkedinIn size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
-                      <FaWhatsapp size={32} className="text-gray-500 hover:text-gray-300 w-6 mx-2" />
+                      <SpecializationList specializations={fl.specializations} />
                     </div>
                   </div>
                 </Link>
