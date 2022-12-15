@@ -1,10 +1,10 @@
 import { useRoutes } from 'react-router-dom';
+import { RequireAuth } from '../auth/authHelpers';
 import Freelancers from './Freelancers';
 import MainPage from '../protected/MainPage';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
-import { RequireAuth } from '../auth/authHelpers';
-import Addfreelancer from './AddFreelancer';
+import AddFreelancer from './AddFreelancer';
 import Freelancer from './Freelancer';
 
 const MyRoutes = () => {
@@ -31,7 +31,7 @@ const MyRoutes = () => {
         },
         {
           path: '/addfreelancer',
-          element: <RequireAuth><Addfreelancer /></RequireAuth>,
+          element: <RequireAuth><AddFreelancer /></RequireAuth>,
         },
         {
           path: '/deletefreelancer',
