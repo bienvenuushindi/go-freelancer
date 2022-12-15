@@ -26,10 +26,6 @@ const AddFreelancer = () => {
     Object.keys(freelancer.freelancer).forEach((key) => {
       form.append(`freelancer[${key}]`, freelancer.freelancer[key]);
     });
-    // eslint-disable-next-line no-restricted-syntax
-    for (const val of form.entries()) {
-      console.log(`${val[0]}, ${val[1]}`);
-    }
     dispatch(addFreelancerAction(form));
   };
   return (
