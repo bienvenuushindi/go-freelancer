@@ -23,7 +23,7 @@ export const getFreelancersAction = () => async (dispatch) => {
 export const addFreelancerAction = (formData) => async (dispatch) => {
   await fetch(`${BaseUrl}api/v1/freelancers`, {
     method: 'POST',
-    body: { freelancer: formData },
+    body: formData,
     headers: { Authorization: localStorage.getItem('token') },
   }).then((res) => {
     dispatch(addFreelancer(res.data));
