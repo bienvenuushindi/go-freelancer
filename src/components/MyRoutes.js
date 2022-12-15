@@ -4,8 +4,8 @@ import Freelancers from './Freelancers';
 import MainPage from '../protected/MainPage';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
-import AddFreelancer from './AddFreelancer';
 import Freelancer from './Freelancer';
+import AddFreelancer from './AddFreelancer';
 
 const MyRoutes = () => {
   const routes = useRoutes([
