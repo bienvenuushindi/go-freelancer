@@ -31,6 +31,7 @@ export const addFreelancerAction = (formData) => async (dispatch) => {
   }).then((res) => {
     dispatch(addFreelancer(res.data));
   }).catch((error) => console.log(error));
+};
 export const getFreelancerAction = (id) => async (dispatch) => {
   await axios.get(`${BaseUrl}api/v1/freelancers/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
@@ -43,7 +44,7 @@ const freelancersReducer = (state = initialState, action) => {
     case GET_FREELANCERS:
       return [...action.payload];
     case ADD_FREELANCERS:
-    return action.payload;
+      return action.payload;
     case GET_FREELANCER:
       return action.payload;
     default:
