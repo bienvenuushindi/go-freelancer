@@ -158,11 +158,14 @@ const AddFreelancer = () => {
 
             </div>
           </div>
-          <SpecializationOption
-            specializations={specializations}
-            updateSelected={(e) => updateSelected(e)}
-          />
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full px-3">
+            <h4 className="pb-4 font-bold">Specialization</h4>
+            <SpecializationOption
+              specializations={specializations}
+              updateSelected={(e) => updateSelected(e)}
+            />
+          </div>
+          <div className="flex flex-wrap -mx-3 mb-2 mt-4">
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <button
                 className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
