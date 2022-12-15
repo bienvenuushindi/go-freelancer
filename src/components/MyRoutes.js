@@ -4,6 +4,7 @@ import MainPage from '../protected/MainPage';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 import { RequireAuth } from '../auth/authHelpers';
+import Freelancer from './Freelancer';
 import Addfreelancer from './Addfreelancer';
 
 const MyRoutes = () => {
@@ -18,10 +19,10 @@ const MyRoutes = () => {
         },
         {
           path: '/details/:id',
-          element: <RequireAuth><div>Link to Freelancer Details</div></RequireAuth>,
+          element: <div><Freelancer /></div>,
         },
         {
-          path: '/reserve',
+          path: '/reserve/:freelancer_id?',
           element: <RequireAuth><div>Link to Add Reserve</div></RequireAuth>,
         },
         {
