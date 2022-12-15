@@ -6,6 +6,7 @@ import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 import Freelancer from './Freelancer';
 import AddFreelancer from './AddFreelancer';
+import DeleteFreelancers from './DeleteFreelancers';
 
 const MyRoutes = () => {
   const routes = useRoutes([
@@ -35,7 +36,7 @@ const MyRoutes = () => {
         },
         {
           path: '/deletefreelancer',
-          element: <RequireAuth><div>Link to Delete Freelancer</div></RequireAuth>,
+          element: <RequireAuth><DeleteFreelancers /></RequireAuth>,
         },
         {
           path: '/logout',
