@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFreelancerAction } from '../redux/freelancersReducer';
+import SpecializationList from './specializationList';
 
 const Freelancer = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const Freelancer = () => {
     <>
       <div className="flex px-4 mt-52 content-center ">
         <div className="w-9/12 flex justify-center text-center pb-4">
-          <img src={freelancer.photo} alt={freelancer.name} className=" w-4/12 p-1 my-1 bg-slate-100 border-slate-700" />
+          <img src={freelancer.featured_image ? freelancer.featured_image['url'] : 'default.png'} alt={freelancer.name} className=" w-4/12 p-1 my-1 bg-slate-100 border-slate-700" />
         </div>
         <div className="flex-auto w-3/12 flex-col">
           <div className="details">
@@ -36,23 +37,7 @@ const Freelancer = () => {
             </div>
             <div className="p-4">
               <h4 className="pb-4 font-bold">Specialization</h4>
-              <ul className="flex gap-1">
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>HTML</span>
-                  {' '}
-                </li>
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>Ruby</span>
-                  {' '}
-                </li>
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>Javascript</span>
-                  {' '}
-                </li>
-              </ul>
+              <SpecializationList specializations={freelancer.specializations || []} />
             </div>
           </div>
           <div className="p-4">
