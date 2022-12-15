@@ -12,60 +12,54 @@ const Freelancer = () => {
     dispatch(getFreelancerAction(id));
   }, []);
   return (
-    <>
-      <div className="flex px-4 mt-52 content-center ">
-        <div className="w-9/12 flex justify-center text-center pb-4">
-          <img src={freelancer.photo} alt={freelancer.name} className=" w-4/12 p-1 my-1 bg-slate-100 border-slate-700" />
+    <div className="grid grid-flow-row">
+      <div className="flex flex-col gap-1 mt-20 lg:grid lg:grid-cols-4 ">
+        <div className="flex items-center justify-center lg:col-span-2 marker:pl-20 mt-14 lg:mt-0 ">
+          <img src={freelancer.photo} alt={freelancer.name} className="w-2/3 rounded shadow-lg " />
         </div>
-        <div className="flex-auto w-3/12 flex-col">
-          <div className="details">
-            <h1 className="text-right font-extrabold pb-10 text-3xl">{freelancer.name}</h1>
-            <div className="flex justify-between p-4 bg-gray-100">
-              <h4 className="font-bold">Fee</h4>
-              <h4>{freelancer.fee}$</h4>
+
+        <div className="flex flex-col col-span-2">
+          <div className="my-8">
+            <div className="w-full text-2xl font-bold text-center uppercase ">
+              <h3>{freelancer.name}</h3>
             </div>
-            <div className="flex justify-between p-4 ">
-              <h4 className="font-bold">Location</h4>
-              <h4>{freelancer.location}</h4>
-            </div>
-            <div className="p-4">
-              <h4 className="pb-4 font-bold">Details</h4>
-              <p>
-                {freelancer.details}
-              </p>
-            </div>
-            <div className="p-4">
-              <h4 className="pb-4 font-bold">Specialization</h4>
-              <ul className="flex gap-1">
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>HTML</span>
-                  {' '}
-                </li>
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>Ruby</span>
-                  {' '}
-                </li>
-                <li className="p-2 rounded-full bg-gray-100">
-                  {' '}
-                  <span>Javascript</span>
-                  {' '}
-                </li>
-              </ul>
+            <div className="w-full my-2 text-center text-gray-400 px-14">
+              <p>{freelancer.details}</p>
             </div>
           </div>
-          <div className="p-4">
-            <Link to={`/reserve/${freelancer.id}`} type="button" key={freelancer.id}  className="bg-green-500 w-fit hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full flex">
-              <svg className="fill-current w-4 h-4 mr-2 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-              </svg>
-              <span>Reserve</span>
+          <div className="flex flex-col">
+            <div className="overflow-x-auto sm:-mx-6 lg:mx-8">
+              <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div className="overflow-hidden">
+                  <table className="min-w-full p-4">
+                    <tr className="w-full px-6 bg-gray-100 border-b">
+                      <td className="px-2 py-4 text-sm font-medium text-left text-gray-900">City</td>
+                      <td colSpan={3} className="px-2 py-4 text-sm font-medium text-left text-gray-900">{freelancer.location}</td>                      
+                    </tr>
+                    <tr className="w-full border-b bg-gb-white">
+                      <td className="px-2 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">Specialization</td>
+                      <td className="px-2 py-4 text-sm font-light text-gray-900 whitespace-nowrap">HTML</td>
+                      <td className="px-2 py-4 text-sm font-light text-gray-900 whitespace-nowrap">Ruby</td>
+                      <td className="px-2 py-4 text-sm font-light text-gray-900 whitespace-nowrap">Javascript</td>
+                    </tr>
+                    <tr className="w-full bg-gray-100 border-b">
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"> Fee</td>
+                      <td colSpan={3} className="">${freelancer.fee}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center w-full mt-6 ">
+            <Link to="/reserve" className="py-2.5 px-8 text-sm font-medium text-gray-900 focus:outline-none bg-clrPrime rounded-full border border-menu hover:bg-lime-300 hover:text-black focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+              Reserve
+              {' '}
             </Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
