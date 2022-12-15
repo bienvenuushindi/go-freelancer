@@ -13,7 +13,7 @@ const Freelancers = () => {
   useEffect(() => {
     dispatch(getFreelancersAction());
   }, []);
-
+  console.log(freelancers);
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full p-7 xl:pl-0">
@@ -32,7 +32,7 @@ const Freelancers = () => {
               {freelancers.map((fl) => (
                 <Link to={`/details/${fl.id}`} type="button" key={fl.id}>
                   <div className="border col-auto rounded shadow-lg px-4 mb-6 flex flex-col items-center justify-center mobileWidth mobilePadding mx-auto" key={fl.id}>
-                    <img src={fl.photo} alt={fl.name} className="w-60 h-60 rounded-full p-1 my-1 bg-slate-100 border-slate-700" />
+                    <img src={fl.featured_image ? fl.featured_image['url'] : 'default.png'} alt={fl.name} className="w-60 h-60 rounded-full p-1 my-1 bg-slate-100 border-slate-700" />
                     <h2 className="uppercase font-bold my-1">{fl.name}</h2>
                     <hr className="border-t-2 border-dashed border-gray-200 w-48 my-2" />
                     <p className="text-gray-400 text-center my-2 w-full">{fl.details}</p>
