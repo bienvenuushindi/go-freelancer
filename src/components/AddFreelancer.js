@@ -4,11 +4,7 @@ import { addFreelancerAction } from '../redux/freelancersReducer';
 
 const AddFreelancer = () => {
   const data = {
-    name: '',
-    fee: 0,
-    details: '',
-    photo: null,
-    location: '',
+    name: '', fee: 0, details: '', photo: 'image', featured_image: null, location: '',
   };
   const dispatch = useDispatch();
   const [formData, setFormData] = useState(data);
@@ -16,19 +12,24 @@ const AddFreelancer = () => {
     setFormData((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
   const onImageChange = (e) => {
-    setFormData((prevState) => ({ ...prevState, photo: e.target.files[0] }));
+    setFormData((prevState) => ({ ...prevState, featured_image: e.target.files[0] }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const freelancer = {
+      freelancer: {
+        ...formData,
+      },
+    };
     const form = new FormData();
-    form.append('name', formData.name);
-    form.append('fee', formData.fee);
-    form.append('details', formData.details);
-    form.append('location', formData.location);
-    form.append('photo', 'image-url');
-    form.append('featured_image', formData.photo);
-    console.log(formData);
+    Object.keys(freelancer.freelancer).forEach((key) => {
+      form.append(`freelancer[${key}]`, freelancer.freelancer[key]);
+    });
+    // eslint-disable-next-line no-restricted-syntax
+    for (const val of form.entries()) {
+      console.log(`${val[0]}, ${val[1]}`);
+    }
     dispatch(addFreelancerAction(form));
   };
   return (
