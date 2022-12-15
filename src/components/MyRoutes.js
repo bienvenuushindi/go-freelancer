@@ -5,6 +5,7 @@ import Login from '../auth/Login';
 import Signup from '../auth/Signup';
 import { RequireAuth } from '../auth/authHelpers';
 import Freelancer from './Freelancer';
+import Addfreelancer from './Addfreelancer';
 
 const MyRoutes = () => {
   const routes = useRoutes([
@@ -30,7 +31,7 @@ const MyRoutes = () => {
         },
         {
           path: '/addfreelancer',
-          element: <RequireAuth><div>Link to Add Freelancer</div></RequireAuth>,
+          element: <RequireAuth><Addfreelancer /></RequireAuth>,
         },
         {
           path: '/deletefreelancer',
