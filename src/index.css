@@ -14,3 +14,11 @@
     xl:w-64 xl:mt-0 xl:translate-x-0  xl:rounded
   }
 }
+
+.bg__img {
+  background-image: url("https://static.tvmaze.com/uploads/images/medium_portrait/0/1398.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-blend-mode: multiply;
+}
