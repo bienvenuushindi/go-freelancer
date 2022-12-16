@@ -47,7 +47,7 @@ const DeleteFreelancers = () => {
                     </div>
                     <div className="ml-12">
                       <p className="text-xs font-bold text-grey-400">Fee:</p>
-                      <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{fl.fee}</p>
+                      <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">${fl.fee}</p>
                     </div>
                   </div>
                   <button onClick={() => handleDelete(fl.id)} type="button" className="px-4 py-2 font-semibold bg-transparent border border-red-400 rounded hover:bg-red-500 text-grey-700 hover:text-white m-7 border-blue">

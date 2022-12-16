@@ -1,6 +1,6 @@
 import axios from 'axios';
 import BaseUrl from './base_url';
-
+/* eslint-disable */
 const GET_FREELANCERS = 'GET_FREELANCERS';
 const ADD_FREELANCERS = 'ADD_FREELANCERS';
 const GET_FREELANCER = 'GET_FREELANCER';
