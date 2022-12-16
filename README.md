@@ -1,4 +1,4 @@
-[![](https://img.shields.io/badge/Micronaut-Angom%20Chittaranjan-blue)](https://github.com/AngomRanjan)
+[![](https://img.shields.io/badge/Four-Micronauts-blue)](https://github.com/AngomRanjan)
 
 # Freelance-Front-end
 
@@ -16,7 +16,7 @@ React Front-end.
 
 ## Getting Started
  To get a local copy of this project, open your terminal and type:
-  - git clone git@github.com:bienvenuushindi/booking-app.git
+  - git clone https://github.com/bienvenuushindi/booking-app
   - cd hello-react-front-end
   - npm install
   - npm start 
@@ -30,28 +30,35 @@ React Front-end.
 - Twitter: [@RanjanAngom](https://twitter.com/RanjanAngom)
 - LinkedIn: [angom-chittaranjan](https://linkedin.com/in/angom-chittaranjan)
 
+#### 👤 Hatim Eddinani
+
+- GitHub: [@Techwolf404](https://github.com/techwolf404)
+- Twitter: [@the_BwoyPrgrmmr](https://twitter.com/the_BwoyPrgrmmr)
+- LinkedIn: [Hatim Eddinani](https://www.linkedin.com/in/hatimdev/)
+
+#### 👤 Ushindi Bienvenu
+
+- GitHub: [@bienvenuushindi](https://github.com/bienvenuushindi)
+- Twitter: [@usbbush](https://twitter.com/usbbush)
+- LinkedIn: [Ushindi Bienvenu](http://www.linkedin.com/in/usbbush)
+
+#### 👤 Nicholas Maina Kamau
+
+- GitHub: [@businesskaniki](https://github.com/businesskaniki)
+- Twitter: [@Nik7346](https://twitter.com/Nik7346)
+- LinkedIn: [Nicholas Maina Kamau](https://www.linkedin.com/in/nicholas-maina-kamau/)
+
 ### Show your support
 Give a [⭐️](../../stargazers) if you like this project!
 
 ### 🤝 Contributing
 Contributions, [issues](../../issues), and feature requests are welcome! Feel free to check the issues page.
 
-## :footprints: Track Me
-
-<a href="https://twitter.com/RanjanAngom?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">
-<img src="https://img.shields.io/badge/-@RanjanAngom-blue?style=flat&logo=twitter&logoColor=white">
-</a>
-
-<a class="github-button" href="https://github.com/AngomRanjan" aria-label="Follow @AngomRanjan on GitHub">
- <img src="https://img.shields.io/badge/-@AngomRanjan-green?style=flat&logo=github&logoColor=white">
-</a>
-
 ### Acknowledgments
 
 - Thanks to the Microverse team for the great curriculum 🙌.
 - Thanks to Code Reviewers for the insightful feedback ⚡💘.
-- My Family.
-- All my fellow micronauts.
+- Thanks to my team [@AngomRanjan](https://github.com/AngomRanjan), [@Techwolf404](https://github.com/techwolf404), [@bienvenuushindi](https://github.com/bienvenuushindi), [@businesskaniki](https://github.com/businesskaniki)
 
 ## 📝 License
 
