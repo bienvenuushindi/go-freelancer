@@ -7,6 +7,7 @@ import Signup from '../auth/Signup';
 import Freelancer from './Freelancer';
 import AddFreelancer from './AddFreelancer';
 import DeleteFreelancers from './DeleteFreelancers';
+import Reserve from './Reserve';
 
 const MyRoutes = () => {
   const routes = useRoutes([
@@ -23,8 +24,8 @@ const MyRoutes = () => {
           element: <div><Freelancer /></div>,
         },
         {
-          path: '/reserve/:freelancer_id?',
-          element: <RequireAuth><div>Link to Add Reserve</div></RequireAuth>,
+          path: '/reserve',
+          element: <RequireAuth><Reserve /></RequireAuth>,
         },
         {
           path: '/myreservation',
