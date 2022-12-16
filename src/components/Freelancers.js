@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getFreelancersAction } from '../redux/freelancersReducer';
+import SpecializationList from './specializationList';
 
 const Freelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -33,7 +34,7 @@ const Freelancers = () => {
                     <hr className="border-t-2 border-dashed border-gray-200 w-48 my-2" />
                     <p className="text-gray-400 text-center my-2 w-full">{fl.details}</p>
                     <div className="flex items-center justify-center w-full m-3">
-                      {fl.specializations.join(', ')}
+                        <SpecializationList specializations={fl.specializations || []} />
                     </div>
                   </div>
                 </Link>
