@@ -6,7 +6,7 @@ import reservationReducer from './reservationReducer';
 const rootReducer = combineReducers({
   freelancers: freelancersReducer,
   specializations: specializationReducer,
-  reservation: reservationReducer,
+  reservations: reservationReducer,
 });
 
 const store = configureStore({
