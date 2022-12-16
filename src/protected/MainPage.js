@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 const MainPage = () => (
   <>
     <Navigation />
-    <div className="xl:ml-72">
+    <div className="xl:ml-64">
       <Outlet />
     </div>
   </>
