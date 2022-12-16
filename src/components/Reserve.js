@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFreelancersAction } from '../redux/freelancersReducer';
+import { requestReservationAction } from '../redux/reservationReducer';
 
 const Reserve = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -8,10 +9,23 @@ const Reserve = () => {
   /* eslint-disable */
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user_id = 'current_user.id';
     const freelancer_id = e.target[0].value;
     const appointment_date = e.target[1].value;
-    // dispatch(getReservations(user_id, freelancer_id, appointment_date));
+    const params = {
+      method: 'POST',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        reservation: {
+          freelancer_id,
+          appointment_date,
+          user_id: 'current_user.id',
+        },
+      }),
+    };
+    dispatch(requestReservationAction(params));
     e.target.reset();
   };
   useEffect(() => {
