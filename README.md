@@ -8,7 +8,7 @@ React Front-end.
 
 [link](https://github.com/users/bienvenuushindi/projects/3)
 
-![groupkanban](https://user-images.githubusercontent.com/26736582/205078094-ae3ac4b5-d300-457e-9378-cb8fe10c9e85.gif)
+[Initial State](https://user-images.githubusercontent.com/26736582/205078094-ae3ac4b5-d300-457e-9378-cb8fe10c9e85.gif)
 
 - This group has 4 members 
 
