@@ -1,4 +1,4 @@
 // Api BaseUrl
-const BaseUrl = 'http://localhost:3000/';
+const BaseUrl = 'https://gofreelancer.up.railway.app/';
 
 export default BaseUrl;
