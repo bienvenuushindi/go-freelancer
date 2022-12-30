@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { getReservationsAction } from '../redux/reservationReducer';
 import BaseUrl from '../redux/base_url';
+import defaultImage from '../images/avatar.png';
 
 const MyReservations = () => {
   const myReservations = useSelector((state) => state.reservations);
@@ -33,12 +34,12 @@ const MyReservations = () => {
             <div key={reservation.id} className="flex items-center justify-center w-11/12 mt-5 ">
               <div className="flex flex-col items-center justify-around w-screen py-5 bg-white rounded-lg shadow-lg sm:flex-row">
                 <div className="w-20">
-                  <img className="rounded-full" src={reservation.freelancer.featured_image['url']} alt="freelancer" />
+                  <img className="rounded-full" src={reservation.freelancer.featured_image['url'] || defaultImage} alt="freelancer" />
                 </div>
                 <div className="flex items-center mt-7">
                   <div className>
                     <p className="text-xs font-bold text-grey-400">Freelancer:</p>
-                    <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.freelancer.name}</p>
+                    <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.freelancer.name || 'Not found'}</p>
                   </div>
                   <div className="ml-12">
                     <p className="text-xs font-bold text-grey-400">Date:</p>
