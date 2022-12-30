@@ -36,7 +36,7 @@ const MyReservations = () => {
             <div key={reservation.id} className="flex items-center justify-center w-11/12 mt-5 ">
               <div className="flex flex-col items-center justify-around w-screen py-5 bg-white rounded-lg shadow-lg sm:flex-row">
                 <div className="w-20">
-                  <img className="rounded-full" src={freelancers.find((fl) => fl.id === reservation.freelancer_id).photo} alt="freelancer" />
+                  <img className="rounded-full" src={freelancers.find((fl) => fl.id === reservation.freelancer_id).featured_image['url']} alt="freelancer" />
                 </div>
                 <div className="flex items-center mt-7">
                   <div className>
