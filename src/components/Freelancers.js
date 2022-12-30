@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import SpecializationList from './specializationList';
+import defaultImage from '../images/avatar.png';
 
 const Freelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -25,11 +26,11 @@ const Freelancers = () => {
               <p className="text-gray-400 m-0 py-1 leading-3">Select a freelancer</p>
             </div>
             <hr className="border-t-2 border-dashed border-gray-200 w-48 m-0 xl:my-4 invisible xl:visible" />
-            <div className="m-0 p-0 md:grid md:grid-cols-3 lg:grid-cols-3 lg:gap-4 flex flex-col items-center lg:items-start justify-center w-full">
+            <div className="container mx-1 p-0 md:grid md:grid-cols-3 lg:grid-cols-3 lg:gap-4 flex flex-col items-center lg:items-start justify-center w-full">
               {freelancers.map((fl) => (
                 <Link to={`/details/${fl.id}`} type="button" key={fl.id}>
-                  <div className="border col-auto rounded shadow-lg px-4 mb-6 flex flex-col items-center justify-center mobileWidth mobilePadding mx-auto" key={fl.id}>
-                    <img src={fl.featured_image ? fl.featured_image['url'] : 'default.png'} alt={fl.name}className="w-60 h-60 rounded-full p-1 my-1 bg-slate-100 border-slate-700" />
+                  <div className="border ml-1 col-auto rounded shadow-lg px-4 mb-6 flex flex-col items-center justify-center mobileWidth mobilePadding mx-auto" key={fl.id}>
+                    <img src={fl.featured_image ? fl.featured_image['url'] : defaultImage} alt={fl.name} className="w-60 h-60 rounded-full p-1 my-1 bg-slate-100 border-slate-700" />
                     <h2 className="uppercase font-bold my-1">{fl.name}</h2>
                     <hr className="border-t-2 border-dashed border-gray-200 w-48 my-2" />
                     <p className="text-gray-400 text-center my-2 w-full">{fl.details}</p>
