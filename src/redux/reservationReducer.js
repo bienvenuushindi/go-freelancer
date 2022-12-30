@@ -27,6 +27,7 @@ export const requestReservationAction = (params) => async (dispatch) => {
 export const getReservationsAction = () => async (dispatch) => {
   await axios.get(`${BaseUrl}api/v1/reservations`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
+      console.log(res.data);
       dispatch(fetchFreelancers(res.data));
     });
 };

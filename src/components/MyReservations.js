@@ -11,7 +11,6 @@ const MyReservations = () => {
 /* eslint-disable */
   useEffect(() => {
     dispatch(getReservationsAction());
-    console.log(myReservations)
   }, []);
 
   const handleDelete = async (id) => {
