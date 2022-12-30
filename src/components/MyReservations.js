@@ -6,7 +6,6 @@ import BaseUrl from '../redux/base_url';
 
 const MyReservations = () => {
   const myReservations = useSelector((state) => state.reservations);
-  const freelancers = useSelector((state) => state.freelancers);
   const dispatch = useDispatch();
 /* eslint-disable */
   useEffect(() => {
