@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { FaRegSadTear } from 'react-icons/fa';
 import BaseUrl from '../redux/base_url';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import defaultImage from '../images/avatar.png';
@@ -24,11 +25,11 @@ const DeleteFreelancers = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center w-full p-7 xl:pl-0">
+      <div className="flex flex-col items-center h-screen lg:mx-4 mx-2 justify-center w-full p-7 xl:pl-0">
         {!freelancers.length ? (
-          <div className="flex justify-center m-auto mt-20 w-80 align-center">
-            <h1 className="text-2xl font-black m-0 py-3 mt-20 leading-4 uppercase ">No Records Found!</h1>
-          </div>
+            <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
+              No Records Found! <FaRegSadTear className="spinner"/>
+            </div>
         ) : (
           <>
             {freelancers.map((fl) => (

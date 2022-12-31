@@ -15,8 +15,12 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .bg__img {
-  background-image: url("https://static.tvmaze.com/uploads/images/medium_portrait/0/1398.jpg");
+  background-image: url("images/avatar.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

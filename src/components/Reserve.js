@@ -38,7 +38,7 @@ const Reserve = () => {
           Freelancers Not Available At This Moment!
         </div>
       ) : (
-        <div className="bg__img bg-clrSec">
+        <div className="bg__img bg-gray-600">
           <div className="flex flex-col items-center justify-center flex-grow w-full h-screen px-3 lighter-bg backdrop-blur-sm">
             <div className="mb-3 text-4xl font-bold text-white ">
               <h2 className="text-center">Freelancer Reservation</h2>

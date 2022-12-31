@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaSpinner } from 'react-icons/fa';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import Slider from './slide';
+import '../app.css';
 
 const Freelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -14,8 +16,8 @@ const Freelancers = () => {
         <>
             <div className="flex flex-col items-center h-screen lg:mx-4 mx-2 justify-center w-full p-7 xl:pl-0">
                 {!freelancers.length ? (
-                    <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-red-500">
-                        Freelancers Not Available At This Moment!
+                    <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
+                        Loading <FaSpinner className="spinner" />
                     </div>
                 ) : (
                     <>

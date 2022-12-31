@@ -24,12 +24,12 @@ function Slider({ freelancers }) {
       slidesPerView={3}
       navigation
       pagination={{ clickable: true }}
-      scrollbar={{ draggable: false }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+      scrollbar={{ draggable: false, hide: true }}
+      // onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
     >
       {freelancers.map((fl) => (
-        <SwiperSlide key={fl.name}>
+        <SwiperSlide key={fl.id}>
           <Link to={`/details/${fl.id}`} type="button" key={fl.id}>
             <div
               className="border ml-1 col-auto rounded shadow-lg px-4 mb-6 flex flex-col items-center justify-center mobileWidth mobilePadding mx-auto"
@@ -48,12 +48,6 @@ function Slider({ freelancers }) {
               </div>
             </div>
           </Link>
-          {({ isActive }) => (
-            <div>
-              Current slide is
-              {isActive ? 'active' : 'not active'}
-            </div>
-          )}
         </SwiperSlide>
       ))}
     </Swiper>

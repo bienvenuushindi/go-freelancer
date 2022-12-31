@@ -7,3 +7,23 @@ code {
     'Courier New',
     monospace;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spinner {
+    animation: app-spinner infinite 20s linear;
+  }
+}
+
+.App-link {
+  color: #97bf0f;
+}
+
+@keyframes app-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
