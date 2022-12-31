@@ -13,7 +13,7 @@ const Freelancer = () => {
     dispatch(getFreelancerAction(id));
   }, []);
   return (
-    <div className="grid grid-flow-row">
+    <div className="grid grid-flow-row items-center h-screen">
       <div className="flex flex-col gap-1 mt-20 lg:grid lg:grid-cols-4 ">
         <div className="flex items-center justify-center lg:col-span-2 marker:pl-20 mt-14 lg:mt-0 ">
           <img src={freelancer.featured_image ? freelancer.featured_image['url'] : freelancer.photo ? freelancer.photo : 'default.png'} alt={freelancer.name} className="w-2/3 rounded shadow-lg " />
@@ -33,19 +33,21 @@ const Freelancer = () => {
               <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
                   <table className="min-w-full p-4">
-                    <tr className="w-full px-6 bg-gray-100 border-b">
+                    <tr className="w-full px-6  border-b">
                       <td className="px-2 py-4 text-sm font-medium text-left text-gray-900">City</td>
                       <td colSpan={3} className="px-2 py-4 text-sm font-medium text-left text-gray-900">{freelancer.location}</td>
                     </tr>
-                    <tr className="w-full border-b bg-gb-white">
+                    <tr className="w-full  border-b">
+                      <td className="px-2 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"> Fee</td>
+                      <td colSpan={3} className="">${freelancer.fee}</td>
+                    </tr>
+                    <tr className="w-full  ">
                       <td className="px-2 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">Specialization</td>
-                      <td colSpan={3} className="px-2 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
+                    </tr>
+                    <tr className="px-2 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                      <td colSpan={4}>
                         <SpecializationList specializations={freelancer.specializations || []} />
                       </td>
-                    </tr>
-                    <tr className="w-full bg-gray-100 border-b">
-                      <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"> Fee</td>
-                      <td colSpan={3} className="">${freelancer.fee}</td>
                     </tr>
                   </table>
                 </div>
