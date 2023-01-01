@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addFreelancerAction } from '../redux/freelancersReducer';
 import { getSpecializationAction } from '../redux/specializationReducer';
 import SpecializationOption from './specializationOption';
@@ -11,6 +12,7 @@ const AddFreelancer = () => {
   const dispatch = useDispatch();
   const specializations = useSelector((state) => state.specializations);
   const [formData, setFormData] = useState(data);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
@@ -33,7 +35,7 @@ const AddFreelancer = () => {
     Object.keys(freelancer.freelancer).forEach((key) => {
       form.append(`freelancer[${key}]`, freelancer.freelancer[key]);
     });
-    dispatch(addFreelancerAction(form));
+    dispatch(addFreelancerAction(form, navigate));
   };
 
   const updateSelected = (e) => {

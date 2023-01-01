@@ -2,11 +2,11 @@ import toast, { Toaster } from 'react-hot-toast';
 import { MdOutlineClose } from 'react-icons/md';
 import Freelancers from '../components/Freelancers';
 
-function showMessage() {
+export function showMessage(message) {
   return toast.custom((t) => (
 
     <div className="flex justify-between gap-4 items-baseline bg-clrPrime text-white shadow-black shadow rounded ">
-      <span className="p-2">You are not signed in!</span>
+      <span className="p-2">{message}</span>
       <button type="button" className="bg-red-600 text-white h-full font-bold p-2  focus:border-0 hover:border-0" onClick={() => toast.dismiss(t.id)}>
         <MdOutlineClose />
       </button>
@@ -17,7 +17,7 @@ function showMessage() {
 export const isLoggedIn = () => {
   const token = localStorage.getItem('token');
   if (!token || token === '') {
-    showMessage();
+    showMessage('You are not signed in!');
     return false;
   }
   return true;

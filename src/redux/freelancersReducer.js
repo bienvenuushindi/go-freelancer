@@ -11,9 +11,6 @@ export const fetchFreelancers = (data) => ({
   type: GET_FREELANCERS, payload: data,
 });
 
-export const addFreelancer = (data) => ({
-  type: GET_FREELANCERS, payload: data,
-});
 export const fetchFreelancer = (data) => ({
   type: GET_FREELANCER, payload: data,
 });
@@ -23,13 +20,14 @@ export const getFreelancersAction = () => async (dispatch) => {
       dispatch(fetchFreelancers(res.data));
     });
 };
-export const addFreelancerAction = (formData) => async (dispatch) => {
+export const addFreelancerAction = (formData, navigate) => async (dispatch) => {
   await fetch(`${BaseUrl}api/v1/freelancers`, {
     method: 'POST',
     body: formData,
     headers: { Authorization: localStorage.getItem('token') },
   }).then((res) => {
-    dispatch(addFreelancer(res.data));
+    dispatch(getFreelancersAction);
+    navigate('/')
   }).catch((error) => console.log(error));
 };
 export const getFreelancerAction = (id) => async (dispatch) => {
