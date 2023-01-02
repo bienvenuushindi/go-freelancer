@@ -10,55 +10,53 @@ import DeleteFreelancers from '../pages/DeleteFreelancers';
 import Reserve from '../pages/Reserve';
 import MyReservations from '../pages/MyReservations';
 
-const MyRoutes = () => {
-  return useRoutes([
-    {
-      path: '/',
-      element: <MainPage />,
-      children: [
-        {
-          index: true,
-          element: <Freelancers />,
-        },
-        {
-          path: '/details/:id',
-          element: <div><Freelancer /></div>,
-        },
-        {
-          path: '/reserve',
-          element: <RequireAuth><Reserve /></RequireAuth>,
-        },
-        {
-          path: '/myreservation',
-          element: <RequireAuth><MyReservations /></RequireAuth>,
-        },
-        {
-          path: '/addfreelancer',
-          element: <RequireAuth><AddFreelancer /></RequireAuth>,
-        },
-        {
-          path: '/deletefreelancer',
-          element: <RequireAuth><DeleteFreelancers /></RequireAuth>,
-        },
-        {
-          path: '/logout',
-          element: <div>Logout</div>,
-        },
-        {
-          path: '*',
-          element: <div>Page not found</div>,
-        },
-      ],
-    },
-    {
-      path: '/signin',
-      element: <Login />,
-    },
-    {
-      path: '/signup',
-      element: <Signup />,
-    },
-  ]);
-};
+const MyRoutes = () => useRoutes([
+  {
+    path: '/',
+    element: <MainPage />,
+    children: [
+      {
+        index: true,
+        element: <Freelancers />,
+      },
+      {
+        path: '/details/:id',
+        element: <div><Freelancer /></div>,
+      },
+      {
+        path: '/reserve',
+        element: <RequireAuth><Reserve /></RequireAuth>,
+      },
+      {
+        path: '/myreservation',
+        element: <RequireAuth><MyReservations /></RequireAuth>,
+      },
+      {
+        path: '/addfreelancer',
+        element: <RequireAuth><AddFreelancer /></RequireAuth>,
+      },
+      {
+        path: '/deletefreelancer',
+        element: <RequireAuth><DeleteFreelancers /></RequireAuth>,
+      },
+      {
+        path: '/logout',
+        element: <div>Logout</div>,
+      },
+      {
+        path: '*',
+        element: <div>Page not found</div>,
+      },
+    ],
+  },
+  {
+    path: '/signin',
+    element: <Login />,
+  },
+  {
+    path: '/signup',
+    element: <Signup />,
+  },
+]);
 
 export default MyRoutes;
