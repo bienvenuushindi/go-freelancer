@@ -1,6 +1,7 @@
 import axios from 'axios';
 import BaseUrl from './base_url';
 import showMessage, { showError } from '../helpers';
+import { loaded, loading } from './loaderReducer';
 /* eslint-disable */
 const GET_FREELANCERS = 'GET_FREELANCERS';
 const ADD_FREELANCERS = 'ADD_FREELANCERS';
@@ -16,9 +17,11 @@ export const fetchFreelancer = (data) => ({
   type: GET_FREELANCER, payload: data,
 });
 export const getFreelancersAction = () => async (dispatch) => {
+  dispatch(loading())
   await axios.get(`${BaseUrl}api/v1/freelancers`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
       dispatch(fetchFreelancers(res.data));
+      dispatch(loaded())
     });
 };
 export const addFreelancerAction = (formData, navigate) => async (dispatch) => {

@@ -31,7 +31,7 @@ const DeleteFreelancers = () => {
       <div className="flex flex-col items-center h-screen lg:mx-4 mx-2 justify-center w-full p-7 xl:pl-0">
         {!freelancers.length ? (
             <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
-              No Records Found! <FaRegSadTear className="spinner"/>
+              No Record Found! <FaRegSadTear className="spinner"/>
             </div>
         ) : (
           <>

@@ -31,7 +31,7 @@ const MyReservations = () => {
             <div className="flex flex-col justify-center h-screen w-full md:w-11/12 mx-auto ">
             {!myReservations.length ? (
                 <div className="flex justify-center font-bold  text-6xl text-clrPrime">
-                    No Records Found! <FaRegSadTear className="spinner"/>
+                    No Record Found! <FaRegSadTear className="spinner"/>
                 </div>
             ) : (
                     myReservations.map((reservation) => (

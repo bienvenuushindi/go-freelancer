@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { FaRegSadTear } from 'react-icons/fa';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import { requestReservationAction } from '../redux/reservationReducer';
 
@@ -35,9 +36,10 @@ const Reserve = () => {
   }, []);
   return (
     <>
+      <div className="flex flex-col justify-center h-screen w-full md:w-11/12 mx-auto ">
       {!freelancers.length ? (
-        <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-red-500">
-          Freelancers Not Available At This Moment!
+          <div className="flex justify-center font-bold  text-6xl text-clrPrime">
+          Freelancers Not Available At This Moment! <FaRegSadTear className="spinner"/>
         </div>
       ) : (
         <div className="bg__img bg-gray-600">
@@ -92,6 +94,7 @@ const Reserve = () => {
           </div>
         </div>
       )}
+      </div>
     </>
   )
 
