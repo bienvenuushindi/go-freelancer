@@ -11,7 +11,7 @@ import Reserve from '../pages/Reserve';
 import MyReservations from '../pages/MyReservations';
 
 const MyRoutes = () => {
-  const routes = useRoutes([
+  return useRoutes([
     {
       path: '/',
       element: <MainPage />,
@@ -59,8 +59,6 @@ const MyRoutes = () => {
       element: <Signup />,
     },
   ]);
-
-  return routes;
 };
 
 export default MyRoutes;
