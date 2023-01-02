@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { FaRegSadTear, FaSpinner } from 'react-icons/fa';
+import { FaRegSadTear } from 'react-icons/fa';
 import { getReservationsAction } from '../redux/reservationReducer';
 import BaseUrl from '../redux/base_url';
 import defaultImage from '../images/avatar.png';
 import showMessage, { showError } from '../helpers';
+import { tableListLoader } from '../components/Loaders';
 
 const MyReservations = () => {
   const myReservations = useSelector((state) => state.reservations);
@@ -13,6 +14,7 @@ const MyReservations = () => {
   const loading = useSelector((state) => state.loading);
   /* eslint-disable */
     useEffect(() => {
+        console.log(myReservations)
         dispatch(getReservationsAction());
     }, [dispatch]);
 
@@ -30,41 +32,41 @@ const MyReservations = () => {
     return (
         <>
             <div className="flex flex-col justify-center h-screen w-full md:w-11/12 mx-auto ">
-                { loading ? (  <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
-                        Loading <FaSpinner className="spinner" />
-                    </div>
-                ):(
-                    !myReservations.length ? (
-                    <div className="flex justify-center font-bold  text-6xl text-clrPrime">
-                    No Record Found! <FaRegSadTear className="spinner"/>
-                    </div>
+                {loading ? (
+                    tableListLoader()
+                ) : (
+                    (myReservations.length === 0) ? (
+                        <div className="flex justify-center font-bold  text-6xl text-clrPrime">
+                            No Record Found! <FaRegSadTear className="spinner"/>
+                        </div>
                     ) : (
-                    myReservations.map((reservation) => (
-                    <div key={reservation.id} className="flex items-center justify-center mt-5 ">
-                    <div
-                    className="flex flex-col items-center justify-around w-screen py-5 bg-white rounded-lg shadow-lg sm:flex-row">
-                    <div className="w-20">
-                    <img className="rounded-full"
-                    src={reservation.freelancer ? reservation.freelancer.featured_image['url'] : defaultImage}
-                    alt="freelancer"/>
-                    </div>
-                    <div className="flex items-center mt-7">
-                    <div className>
-                    <p className="text-xs font-bold text-grey-400">Freelancer:</p>
-                    <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.freelancer ? reservation.freelancer.data.name : 'Not found'}</p>
-                    </div>
-                    <div className="ml-12">
-                    <p className="text-xs font-bold text-grey-400">Date:</p>
-                    <p className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.appointment_date}</p>
-                    </div>
-                    </div>
-                    <button  onClick={() => handleDelete(reservation.id)} type="button"
-                    className="px-4 py-2 font-semibold bg-gray-100 border border-red-400 rounded text-light">
-                    Delete
-                    </button>
-                    </div>
-                    </div>
-                    ))
+                        myReservations.map((reservation) => (
+                            <div key={reservation.id} className="flex items-center justify-center mt-5 ">
+                                <div
+                                    className="flex flex-col items-center justify-around w-screen py-2 bg-white rounded-lg shadow-lg sm:flex-row">
+                                    <img className="rounded-full w-20 h-20"
+                                         src={reservation.freelancer ? reservation.freelancer.featured_image['url'] : defaultImage}
+                                         alt="freelancer"/>
+                                    <div className="flex-grow md:ml-10 grid grid-cols-2 gap-5">
+                                        <div>
+                                            <div className="text-xs font-bold text-gray-400">Freelancer:</div>
+                                            <div className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.freelancer ? reservation.freelancer.data.name : 'Not found'}</div>
+                                        </div>
+                                        <div>
+                                            <div className="text-xs font-bold text-gray-400">Appointment Date:</div>
+                                            <div className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.appointment_date}</div>
+                                        </div>
+                                    </div>
+                                    <small>
+                                        <button onClick={() => handleDelete(reservation.id)} type="button"
+                                                className="px-2 py-1 font-semibold bg-transparent border border-red-400 rounded hover:bg-red-500 text-grey-700 hover:text-white m-7 border-blue">
+                                            Cancel
+                                        </button>
+                                    </small>
+
+                                </div>
+                            </div>
+                        ))
                     )
                 )}
             </div>

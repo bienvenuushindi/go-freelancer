@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaRegSadTear, FaSpinner } from 'react-icons/fa';
+import { FaRegSadTear } from 'react-icons/fa';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import Slider from '../components/slide';
 import '../app.css';
+import freelancerLoader from '../components/Loaders';
 
 const Freelancers = () => {
   const loading = useSelector((state) => state.loading);
@@ -17,10 +18,10 @@ const Freelancers = () => {
         <>
             <div className="flex flex-col items-center h-screen lg:mx-4 mx-2 justify-center w-full p-7 xl:pl-0">
                 { loading ? (  <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
-                        Loading <FaSpinner className="spinner" />
+                        {freelancerLoader()}
                     </div>
                 ):(
-                    !freelancers.length ? (
+                    (freelancers.length === 0) ? (
                     <div className="flex justify-center font-bold  text-6xl text-clrPrime">
                     No Record Found! <FaRegSadTear className="spinner"/>
                     </div>

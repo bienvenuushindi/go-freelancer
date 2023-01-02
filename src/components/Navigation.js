@@ -68,7 +68,7 @@ const Navigation = () => {
               FREELANCERS
             </Link>
             <Link to="/reserve" onClick={() => toggleMenu()} type="button" className="nav__link">
-              RESERVE
+              BOOK FREELANCER
             </Link>
             <Link to="/myreservation" onClick={() => toggleMenu()} type="button" className="nav__link">
               MY RESERVATIONS

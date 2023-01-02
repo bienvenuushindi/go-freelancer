@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { FaSpinner } from 'react-icons/fa';
 import { addFreelancerAction } from '../redux/freelancersReducer';
 import { getSpecializationAction } from '../redux/specializationReducer';
 import SpecializationOption from '../components/specializationOption';
+import { loaded } from '../redux/loaderReducer';
 
 const AddFreelancer = () => {
   const data = {
@@ -11,6 +13,8 @@ const AddFreelancer = () => {
   };
   const dispatch = useDispatch();
   const specializations = useSelector((state) => state.specializations);
+  const loading = useSelector((state) => state.loading);
+  const [notSubmit, setNotSubmit] = useState(true);
   const [formData, setFormData] = useState(data);
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -18,6 +22,7 @@ const AddFreelancer = () => {
   };
 
   useEffect(() => {
+    dispatch(loaded());
     dispatch(getSpecializationAction());
   }, [dispatch]);
   const onImageChange = (e) => {
@@ -26,6 +31,7 @@ const AddFreelancer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setNotSubmit(false);
     const freelancer = {
       freelancer: {
         ...formData,
@@ -160,19 +166,31 @@ const AddFreelancer = () => {
           </div>
           <div className="w-full px-3">
             <h4 className="pb-4 font-bold">Specialization</h4>
-            <SpecializationOption
-              specializations={specializations}
-              updateSelected={(e) => updateSelected(e)}
-            />
+            { (loading && notSubmit) ? (
+              <div className="flex items-center justify-center font-bold text-lg w-full h-64  text-clrPrime">
+                Loading
+                {' '}
+                <FaSpinner className="spinner" />
+              </div>
+            ) : (
+              <SpecializationOption
+                specializations={specializations}
+                updateSelected={(e) => updateSelected(e)}
+              />
+            )}
           </div>
           <div className="flex flex-wrap -mx-3 mb-2 mt-4">
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-              <button
-                className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                type="submit"
-              >
-                Add Freelancer
-              </button>
+              {loading ? (<span className="text-black"><FaSpinner className="spinner" /></span>)
+                : (
+                  <button
+                    className="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                    type="submit"
+                    disabled={loading}
+                  >
+                    Add Freelancer
+                  </button>
+                )}
             </div>
           </div>
         </div>

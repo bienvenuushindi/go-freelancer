@@ -16,15 +16,16 @@ export const fetchFreelancers = (data) => ({
 });
 
 export const requestReservationAction = (params, navigate) => async (dispatch) => {
+  dispatch(loading());
   await fetch(`${BaseUrl}api/v1/reservations`, params)
     .then((res) => res.json())
-    .then((data) => {
-      dispatch(requestReservation(data));
+    .then(() => {
       showMessage('Reservation added successfully');
       navigate('/myreservation');
     })
     .catch((err) => {
       showError();
+      dispatch(loaded());
       throw new Error(err);
     });
 };

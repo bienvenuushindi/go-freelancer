@@ -25,6 +25,7 @@ export const getFreelancersAction = () => async (dispatch) => {
     });
 };
 export const addFreelancerAction = (formData, navigate) => async (dispatch) => {
+  dispatch(loading());
   await fetch(`${BaseUrl}api/v1/freelancers`, {
     method: 'POST',
     body: formData,
@@ -35,6 +36,7 @@ export const addFreelancerAction = (formData, navigate) => async (dispatch) => {
     navigate('/')
   }).catch((error) => {
     showError()
+    dispatch(loaded())
     console.log(error)
   });
 };
