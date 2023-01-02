@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFreelancerAction } from '../redux/freelancersReducer';
-import SpecializationList from './specializationList';
+import SpecializationList from '../components/specializationList';
 
 const Freelancer = () => {
   const { id } = useParams();

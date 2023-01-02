@@ -1,5 +1,6 @@
 import axios from 'axios';
 import BaseUrl from './base_url';
+import showMessage, { showError } from '../helpers';
 /* eslint-disable */
 const GET_FREELANCERS = 'GET_FREELANCERS';
 const ADD_FREELANCERS = 'ADD_FREELANCERS';
@@ -27,8 +28,12 @@ export const addFreelancerAction = (formData, navigate) => async (dispatch) => {
     headers: { Authorization: localStorage.getItem('token') },
   }).then((res) => {
     dispatch(getFreelancersAction);
+    showMessage('Freelancer added successfully')
     navigate('/')
-  }).catch((error) => console.log(error));
+  }).catch((error) => {
+    showError()
+    console.log(error)
+  });
 };
 export const getFreelancerAction = (id) => async (dispatch) => {
   await axios.get(`${BaseUrl}api/v1/freelancers/${id}`, { headers: { Authorization: localStorage.getItem('token') } })

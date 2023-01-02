@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addFreelancerAction } from '../redux/freelancersReducer';
 import { getSpecializationAction } from '../redux/specializationReducer';
-import SpecializationOption from './specializationOption';
+import SpecializationOption from '../components/specializationOption';
 
 const AddFreelancer = () => {
   const data = {

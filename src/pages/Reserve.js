@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import { requestReservationAction } from '../redux/reservationReducer';
 
 const Reserve = () => {
   const freelancers = useSelector((state) => state.freelancers);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   /* eslint-disable */
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const Reserve = () => {
         },
       }),
     };
-    dispatch(requestReservationAction(params));
+    dispatch(requestReservationAction(params, navigate));
     e.target.reset();
   };
   useEffect(() => {

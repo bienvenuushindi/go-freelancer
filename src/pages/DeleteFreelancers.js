@@ -5,6 +5,7 @@ import { FaRegSadTear } from 'react-icons/fa';
 import BaseUrl from '../redux/base_url';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import defaultImage from '../images/avatar.png';
+import showMessage, { showError } from '../helpers';
 
 const DeleteFreelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
@@ -18,7 +19,9 @@ const DeleteFreelancers = () => {
     await axios.delete(`${BaseUrl}api/v1/freelancers/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
       .then(() => {
         dispatch(getFreelancersAction());
+        showMessage('Successfully Deleted')
       }).catch((err) => {
+            showError()
         console.log(err);
       });
   };

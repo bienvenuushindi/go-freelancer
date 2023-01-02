@@ -1,14 +1,14 @@
 import { useRoutes } from 'react-router-dom';
 import { RequireAuth } from '../auth/authHelpers';
-import Freelancers from './Freelancers';
+import Freelancers from '../pages/Freelancers';
 import MainPage from '../protected/MainPage';
 import Login from '../auth/Login';
 import Signup from '../auth/Signup';
-import Freelancer from './Freelancer';
-import AddFreelancer from './AddFreelancer';
-import DeleteFreelancers from './DeleteFreelancers';
-import Reserve from './Reserve';
-import MyReservations from './MyReservations';
+import Freelancer from '../pages/Freelancer';
+import AddFreelancer from '../pages/AddFreelancer';
+import DeleteFreelancers from '../pages/DeleteFreelancers';
+import Reserve from '../pages/Reserve';
+import MyReservations from '../pages/MyReservations';
 
 const MyRoutes = () => {
   const routes = useRoutes([

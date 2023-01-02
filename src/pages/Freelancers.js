@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaSpinner } from 'react-icons/fa';
 import { getFreelancersAction } from '../redux/freelancersReducer';
-import Slider from './slide';
+import Slider from '../components/slide';
 import '../app.css';
 
 const Freelancers = () => {

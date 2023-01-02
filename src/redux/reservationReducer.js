@@ -1,5 +1,6 @@
 import axios from 'axios';
 import BaseUrl from './base_url';
+import showMessage, { showError } from '../helpers';
 
 const REQUEST_RESERVATION = 'REQUEST_RESERVATION';
 const GET_RESERVATIONS = 'GET_RESERVATIONS';
@@ -13,13 +14,16 @@ export const fetchFreelancers = (data) => ({
   type: GET_RESERVATIONS, payload: data,
 });
 
-export const requestReservationAction = (params) => async (dispatch) => {
+export const requestReservationAction = (params, navigate) => async (dispatch) => {
   await fetch(`${BaseUrl}api/v1/reservations`, params)
     .then((res) => res.json())
     .then((data) => {
       dispatch(requestReservation(data));
+      showMessage('Reservation added successfully');
+      navigate('/myreservation');
     })
     .catch((err) => {
+      showError();
       throw new Error(err);
     });
 };
