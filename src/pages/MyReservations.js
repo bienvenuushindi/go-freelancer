@@ -14,7 +14,6 @@ const MyReservations = () => {
   const loading = useSelector((state) => state.loading);
   /* eslint-disable */
     useEffect(() => {
-        console.log(myReservations)
         dispatch(getReservationsAction());
     }, [dispatch]);
 
