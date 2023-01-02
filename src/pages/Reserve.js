@@ -51,7 +51,7 @@ const Reserve = () => {
         <div className="bg__img bg-green-600 h-screen flex items-center text-white">
           <div className="grid shadow bg-green-900 rounded mx-auto  w-fit h-fit p-3 lighter-bg backdrop-blur-sm">
             <div className="mb-3 text-4xl font-bold  ">
-              <h2 className="text-center">Booking a Freelancer</h2>
+              <h2 className="text-center">Book a Freelancer</h2>
 
             </div>
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col items-center">
