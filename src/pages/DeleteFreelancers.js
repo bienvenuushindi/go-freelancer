@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import { FaRegSadTear } from 'react-icons/fa';
+import { FaRegSadTear, FaSpinner } from 'react-icons/fa';
 import BaseUrl from '../redux/base_url';
 import { getFreelancersAction } from '../redux/freelancersReducer';
 import defaultImage from '../images/avatar.png';
@@ -9,6 +9,7 @@ import showMessage, { showError } from '../helpers';
 
 const DeleteFreelancers = () => {
   const freelancers = useSelector((state) => state.freelancers);
+  const loading = useSelector((state) => state.loading);
   const dispatch = useDispatch();
   /* eslint-disable */
   useEffect(() => {
@@ -29,7 +30,11 @@ const DeleteFreelancers = () => {
   return (
     <>
       <div className="flex flex-col items-center h-screen lg:mx-4 mx-2 justify-center w-full p-7 xl:pl-0">
-        {!freelancers.length ? (
+          { loading ? (  <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
+                  Loading <FaSpinner className="spinner" />
+              </div>
+          ):(
+        !freelancers.length ? (
             <div className="flex items-center justify-center font-bold text-lg w-full h-64 text-6xl text-clrPrime">
               No Record Found! <FaRegSadTear className="spinner"/>
             </div>
@@ -63,7 +68,7 @@ const DeleteFreelancers = () => {
             ))}
           </>
         )
-        }
+        )}
       </div>
     </>
   );

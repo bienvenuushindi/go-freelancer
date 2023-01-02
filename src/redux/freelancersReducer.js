@@ -39,9 +39,11 @@ export const addFreelancerAction = (formData, navigate) => async (dispatch) => {
   });
 };
 export const getFreelancerAction = (id) => async (dispatch) => {
+  dispatch(loading())
   await axios.get(`${BaseUrl}api/v1/freelancers/${id}`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
       dispatch(fetchFreelancer(res.data));
+      dispatch(loaded())
     });
 };
 

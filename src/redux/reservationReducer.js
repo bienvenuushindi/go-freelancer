@@ -1,6 +1,7 @@
 import axios from 'axios';
 import BaseUrl from './base_url';
 import showMessage, { showError } from '../helpers';
+import { loaded, loading } from './loaderReducer';
 
 const REQUEST_RESERVATION = 'REQUEST_RESERVATION';
 const GET_RESERVATIONS = 'GET_RESERVATIONS';
@@ -29,9 +30,11 @@ export const requestReservationAction = (params, navigate) => async (dispatch) =
 };
 
 export const getReservationsAction = () => async (dispatch) => {
+  dispatch(loading());
   await axios.get(`${BaseUrl}api/v1/reservations`, { headers: { Authorization: localStorage.getItem('token') } })
     .then((res) => {
       dispatch(fetchFreelancers(res.data));
+      dispatch(loaded());
     });
 };
 

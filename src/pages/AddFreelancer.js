@@ -50,9 +50,7 @@ const AddFreelancer = () => {
         const filtered = prevState.specializations.filter((item) => item !== value);
         return ({ ...prevState, specializations: [...filtered] });
       });
-      // data.specializations = [...data.specializations.filter((item) => item !== e.target.value)];
     }
-    // console.log(data.specializations);
   };
   return (
     <>
