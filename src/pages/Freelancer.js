@@ -39,6 +39,7 @@ const Freelancer = () => {
                   <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                     <div className="overflow-hidden">
                       <table className="min-w-full p-4">
+                        <tbody>
                         <tr className="w-full px-6  border-b">
                           <td className="px-2 py-4 text-sm font-medium text-left text-gray-900">City</td>
                           <td colSpan={3} className="px-2 py-4 text-sm font-medium text-left text-gray-900">{freelancer.location}</td>
@@ -55,6 +56,7 @@ const Freelancer = () => {
                             <SpecializationList specializations={freelancer.specializations || []} />
                           </td>
                         </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
