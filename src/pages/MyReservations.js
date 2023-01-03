@@ -42,18 +42,18 @@ const MyReservations = () => {
                         myReservations.map((reservation) => (
                             <div key={reservation.id} className="flex items-center justify-center mt-5 ">
                                 <div
-                                    className="flex flex-col items-center justify-around w-screen py-2 bg-white rounded-lg shadow-lg sm:flex-row">
+                                    className="flex gap-3 flex-col items-center justify-around w-screen py-2 bg-white rounded-lg shadow-lg sm:flex-row">
                                     <img className="rounded-full w-20 h-20"
                                          src={reservation.freelancer ? reservation.freelancer.featured_image['url'] : defaultImage}
                                          alt="freelancer"/>
                                     <div className="flex-grow md:ml-10 grid grid-cols-2 gap-5">
                                         <div>
                                             <div className="text-xs font-bold text-gray-400">Freelancer:</div>
-                                            <div className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.freelancer ? reservation.freelancer.data.name : 'Not found'}</div>
+                                            <div className="mt-2 font-bold">{reservation.freelancer ? reservation.freelancer.data.name : 'Not found'}</div>
                                         </div>
                                         <div>
                                             <div className="text-xs font-bold text-gray-400">Appointment Date:</div>
-                                            <div className="mt-2 text-base sm:text-lg md:text-xl 2xl:text-2xl text-grey-400">{reservation.appointment_date}</div>
+                                            <div className="mt-2 font-bold">{reservation.appointment_date}</div>
                                         </div>
                                     </div>
                                     <small>

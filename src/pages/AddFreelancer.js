@@ -63,8 +63,8 @@ const AddFreelancer = () => {
     <>
       {/* add from using tailwindcss */}
       <form className="w-full  mt-40 flex justify-center" onSubmit={(e) => handleSubmit(e)}>
-        <div className="w-6/12">
-          <div className="flex flex-wrap -mx-3 mb-2">
+        <div className="lg:w-6/12 md:w-9/12 sm:w-full">
+          <div className="flex flex-wrap -mx-10 mb-2">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -84,7 +84,7 @@ const AddFreelancer = () => {
               </label>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="flex flex-wrap -mx-10 mb-2">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -105,7 +105,7 @@ const AddFreelancer = () => {
 
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="flex flex-wrap -mx-10 mb-2">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -124,7 +124,7 @@ const AddFreelancer = () => {
               </label>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="flex flex-wrap -mx-10 mb-2">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -144,7 +144,7 @@ const AddFreelancer = () => {
               </label>
             </div>
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="flex flex-wrap -mx-10 mb-2">
             <div className="w-full px-3">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -165,7 +165,7 @@ const AddFreelancer = () => {
 
             </div>
           </div>
-          <div className="w-full px-3">
+          <div className="w-full -mx-10 mb-2 pl-2">
             <h4 className="pb-4 font-bold">Specialization</h4>
             { (loading && notSubmit) ? (
               specializationLoader()
@@ -176,7 +176,7 @@ const AddFreelancer = () => {
               />
             )}
           </div>
-          <div className="flex flex-wrap -mx-3 mb-2 mt-4">
+          <div className="flex flex-wrap -mx-10 mb-2 mt-4">
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               {(loading && !notSubmit) ? (<span className="text-black"><FaSpinner className="spinner" /></span>)
                 : (

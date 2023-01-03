@@ -25,6 +25,23 @@ function Slider({ freelancers }) {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: false, hide: true }}
+      breakpoints={{
+        // when window width is >= 640px
+        360: {
+          width: 360,
+          slidesPerView: 1,
+        },
+        // when window width is >= 768px
+        768: {
+          width: 768,
+          slidesPerView: 2,
+        },
+        // when window width is >= 1366px
+        1366: {
+          width: 1366,
+          slidesPerView: 3,
+        },
+      }}
       // onSwiper={(swiper) => console.log(swiper)}
       // onSlideChange={() => console.log('slide change')}
     >

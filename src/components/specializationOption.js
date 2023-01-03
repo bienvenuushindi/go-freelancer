@@ -7,7 +7,7 @@ const SpecializationOption = (props) => {
     updateSelected(e);
   };
   return (
-    <ul className="grid grid-cols-4 gap-3">
+    <ul className="grid lg:grid-cols-4 sm:grid-cols-2  gap-3">
       {specializations.map(({ name, id }) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`specialization-${id}`}>
