@@ -30,7 +30,7 @@ const DeleteFreelancers = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center min-h-screen lg:mx-4 pb-3   justify-center w-full mt-48  md:mt-1 xl:pl-0">
+            <div className="flex flex-col items-center min-h-screen lg:mx-4 pb-3   justify-center w-full mt-40  md:mt-4 xl:pl-0">
                 {loading ? (
                     tableListLoader()
                 ) : (
