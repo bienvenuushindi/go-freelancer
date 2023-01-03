@@ -52,7 +52,6 @@ const Reserve = () => {
           <div className="grid shadow bg-green-900 rounded mx-auto  w-fit h-fit p-3 lighter-bg backdrop-blur-sm">
             <div className="mb-3 text-4xl font-bold  ">
               <h2 className="text-center">Book a Freelancer</h2>
-
             </div>
             <form onSubmit={(e) => handleSubmit(e)} className="flex flex-col items-center">
               <div className="flex items-center justify-center bg-transparent" style={{ fontFamily: '"Lato", sans-serif' }}>

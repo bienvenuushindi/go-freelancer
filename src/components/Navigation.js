@@ -30,11 +30,7 @@ const Navigation = () => {
   };
 
   const toggleMenu = () => {
-    if (show) {
-      setShow(false);
-    } else {
-      setShow(true);
-    }
+    setShow(!show);
   };
 
   return (

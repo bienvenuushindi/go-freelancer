@@ -36,6 +36,8 @@ export const getReservationsAction = () => async (dispatch) => {
     .then((res) => {
       dispatch(fetchFreelancers(res.data));
       dispatch(loaded());
+    }).catch((err) => {
+      showError(err.error);
     });
 };
 
