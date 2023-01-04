@@ -14,8 +14,10 @@ React Front-end.
 # App Links
 #### Frontend Link
 - [link](https://github.com/bienvenuushindi/booking-app)
+- [Demo](https://gofreelancer.vercel.app/)
 #### Backend Link
 - [Link](https://github.com/techwolf404/gofreelancer-backend)
+- [Demo](http://localhost:3000/gofreelancer.up.railway.app/api-docs)
 
 ## Built with
   - React
@@ -23,9 +25,7 @@ React Front-end.
   - Axios
 
 ## Pre-requsite
-  - React
-  - Redux
-  - Axios
+  - install npm
 
 ## Getting Started
  To get a local copy of this project, open your terminal and type:
