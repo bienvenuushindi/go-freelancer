@@ -17,7 +17,7 @@ React Front-end.
 - [Demo](https://gofreelancer.vercel.app/)
 #### Backend Link
 - [Link](https://github.com/techwolf404/gofreelancer-backend)
-- [Demo](http://localhost:3000/gofreelancer.up.railway.app/api-docs)
+- [Demo](https://gofreelancer.up.railway.app/api-docs)
 
 ## Built with
   - React
