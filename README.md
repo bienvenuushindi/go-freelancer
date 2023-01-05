@@ -2,7 +2,7 @@
 
 # Freelance-Front-end
 
-React Front-end.
+ GoFreelancer enables a user to book a freelancer, cancel a booking, add and delete a freelancer.
 
 # Kanban board
 
